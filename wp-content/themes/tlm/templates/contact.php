@@ -18,35 +18,48 @@ get_header();
     
   <?php
  
-  if ( have_posts() ) :
-    while ( have_posts() ) : the_post(); 
+ 
   ?>
       <article>
-        <h1><?php the_title(); ?></h1>
+        <h1><?php echo get_the_title(); ?></h1>
         
         <div class="content">
-          <?php the_content(); ?> 
+        <?php echo get_the_content(); ?> 
           <form action="" method="post">
           <div>
-            <input type="text" name="lastname" placeholder="Votre nom">
-            <input type="text" name="firstname" placeholder="Votre prénom"> ">
+            <input type="text" name="lastname" placeholder="Votre nom *" required>
+            <input type="text" name="firstname" placeholder="Votre prénom *" required> 
+        </div>
+       
+        <div>
+            <input type="email" name="usermail" placeholder="Votre email *" required>
         </div>
         <div>
-            <select name="option" id=""></select>
-          
+            <select name="objet" id="objet" required> 
+            <option value=""> Sélectionnez un option * </option>
+            <option value="objet0">Demande de documents: actes de naissance, acte de décès, acte de mariage, autres</option>
+            <option value="objet1">Prendre un RDV</option>
+            <option value="objet2">Ajouter votre Entreprise</option>
+            <option value="objet3">Ajouter votre Association</option>
+            <option value="objet4">Autres demandes</option>
+
+          </select>
         </div>
         <div>
-            <input type="email" name="usermail" placeholder="Votre email">
+            <textarea name="message" placeholder="Décrivez votre demande en quelques lignes *"></textarea>
         </div>
-        <div>
-            <textarea name="message" placeholder="Décrivez votre demande en quelques lignes"></textarea>
-        </div>
-        <div>
+        <div> 
+               <p class="obligation"> * Les champs obligatoires sont marqués d’un astérisque. </p>
+
                 <input type="checkbox" name="accept" id="accepte" required>
-                <label for="accepte">En soumettant ce formulaire,j'admets être en accord avec les mentions légales </label>
+                <label for="accepte">En soumettant ce formulaire, j'admets être en accord avec les mentions légales. </label>
 
             </div>
         <input type="submit" value="Envoyer">
+ 
+
+
+
 
 
 
@@ -57,8 +70,8 @@ get_header();
       </article>
 
   <?php
-    endwhile;
-  endif;
+   // endwhile;
+  //endif;
   ?>
 </main>
 
