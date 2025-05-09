@@ -25,14 +25,17 @@ get_header();
         
         <div class="content">
         <?php echo get_the_content(); ?> 
-          <form action="" method="post">
+          <form action="../traitement-contact.php" method="post">
           <div>
-            <input type="text" name="lastname" placeholder="Votre nom *" required>
-            <input type="text" name="firstname" placeholder="Votre prénom *" required> 
+           <label for="nom">Votre nom</label>
+            <input type="text" name="nom" placeholder="Votre nom *" id="nom"required>
+            <label for="prenom">Votre prénom</label>
+            <input type="text" name="prenom" placeholder="Votre prénom *" id="prenom"required> 
         </div>
        
         <div>
-            <input type="email" name="usermail" placeholder="Votre email *" required>
+        <label for="email">Votre prénom</label>
+            <input type="email" name="email" placeholder="Votre email *" id="email"required>
         </div>
         <div>
             <select name="objet" id="objet" required> 
@@ -51,8 +54,8 @@ get_header();
         <div> 
                <p class="obligation"> * Les champs obligatoires sont marqués d’un astérisque. </p>
 
-                <input type="checkbox" name="accept" id="accepte" required>
-                <label for="accepte">En soumettant ce formulaire, j'admets être en accord avec les mentions légales. </label>
+                <input type="checkbox" name="cgu" id="cgu" required>
+                <label for="cgu">En soumettant ce formulaire, j'admets être en accord avec les mentions légales. </label>
 
             </div>
         <input type="submit" value="Envoyer">
