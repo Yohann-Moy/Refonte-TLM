@@ -1,0 +1,62 @@
+// base/_typographies.scss
+
+@use '../utils/variables' as var;
+
+@font-face {
+    font-family: 'MPlus Rounded 1c';
+    src: url('/wp-content/themes/tlm/assets/fonts/primary/font.woff2') format('woff2'),
+         url('/wp-content/themes/tlm/assets/fonts/primary/font.woff') format('woff');
+    font-weight: 0 - 900;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MPlus Rounded 1c ExtraBold';
+    src: url('/wp-content/themes/tlm/assets/fonts/secondary/font.woff2') format('woff2'),
+         url('/wp-content/themes/tlm/assets/fonts/secondary/font.woff') format('woff');
+    font-weight: 0 - 900;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'La belle Aurore';
+    src: url('/wp-content/themes/tlm/assets/fonts/tertiary/font.woff2') format('woff2'),
+         url('/wp-content/themes/tlm/assets/fonts/tertiary/font.woff') format('woff');
+    font-weight: 0 - 900;
+    font-display: swap;
+}
+
+
+h1{
+    font-family: 'MPlus Rounded 1c ExtraBold', sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    text-align: center;
+    color: var.$primaryColour;
+
+    &.hb_title{
+        font-size: 80px;
+        color: white;
+        filter: drop-shadow(0rem .25rem .9375rem rgba(0, 0, 0, 0.25));
+    }
+}
+
+h2{
+    font-family: 'MPlus Rounded 1c', sans-serif;
+    font-weight: 900;
+    font-size: 64px;
+    text-align: center;
+    color: var.$primaryColour;
+    filter: drop-shadow(0rem .25rem .9375rem rgba(0, 0, 0, 0.25));
+}
+
+
+.hb_subtitle{
+    font-family: 'La belle Aurore', sans-serif;
+    font-weight: 500;
+    font-size: 64px;
+    text-align: center;
+    color: white;
+    filter: drop-shadow(0rem .25rem .9375rem rgba(0, 0, 0, 0.25));
+    margin-top: 3.125rem;
+}
+
+// Toutes vos règles de base par rapport aux typos devront être déclarées ici
