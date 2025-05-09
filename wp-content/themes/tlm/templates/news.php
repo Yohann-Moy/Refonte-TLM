@@ -6,4 +6,5 @@
  * @package TLM
  * @author Karl Clémence
  */
+get_header();
 ?>

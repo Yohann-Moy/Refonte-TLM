@@ -138,14 +138,20 @@ add_action( 'widgets_init', 'tlm_widgets_init' );
  * Enqueue scripts and styles.
  */
 function tlm_scripts() {
-	wp_enqueue_style( 'tlm-style', get_stylesheet_uri(), array(), _S_VERSION );
+	/*wp_enqueue_style( 'tlm-style', get_stylesheet_uri(), array(), _S_VERSION );
 	wp_style_add_data( 'tlm-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'tlm-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
+	}*/
+	$template = basename( get_page_template_slug());
+	$template = str_replace( '.php', '', $template );
+
+	wp_enqueue_style( $template.'-styles', get_template_directory_uri() . '/assets/css/build/pages/'.$template.'.css', array(), _S_VERSION );
+		echo $template;
+
 }
 add_action( 'wp_enqueue_scripts', 'tlm_scripts' );
 
@@ -176,3 +182,136 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+// Allow SVG
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+
+    global $wp_version;
+    if ( $wp_version !== '4.7.1' ) {
+       return $data;
+    }
+  
+    $filetype = wp_check_filetype( $filename, $mimes );
+  
+    return [
+        'ext'             => $filetype['ext'],
+        'type'            => $filetype['type'],
+        'proper_filename' => $data['proper_filename']
+    ];
+  
+  }, 10, 4 );
+  
+  function cc_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+  }
+  add_filter( 'upload_mimes', 'cc_mime_types' );
+  
+  function fix_svg() {
+    echo '<style type="text/css">
+          .attachment-266x266, .thumbnail img {
+               width: 100% !important;
+               height: auto !important;
+          }
+          </style>';
+  }
+  add_action( 'admin_head', 'fix_svg' );
+
+  // ******************** Crunchify Tips - Clean up WordPress Header START ********************** //
+
+function crunchify_remove_version() {
+	return '';
+	}
+	add_filter('the_generator', 'crunchify_remove_version');
+	 
+	remove_action('wp_head', 'rest_output_link_wp_head', 10);
+	remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
+	remove_action('template_redirect', 'rest_output_link_header', 11, 0);
+	 
+	remove_action ('wp_head', 'rsd_link');
+	remove_action( 'wp_head', 'wlwmanifest_link');
+	remove_action( 'wp_head', 'wp_shortlink_wp_head');
+	 
+	function crunchify_cleanup_query_string( $src ){ 
+	$parts = explode( '?', $src ); 
+	return $parts[0]; 
+	} 
+	add_filter( 'script_loader_src', 'crunchify_cleanup_query_string', 15, 1 ); 
+	add_filter( 'style_loader_src', 'crunchify_cleanup_query_string', 15, 1 );
+	
+	// REMOVE WP EMOJI
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
+	
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	
+	// REMOVE global-styles-inline-css //
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+	
+	function webapptiv_remove_block_library_css()
+	{
+	wp_dequeue_style( 'wp-block-library' );
+	}
+	add_action( 'wp_enqueue_scripts', 'webapptiv_remove_block_library_css' );
+	
+	
+		// remove all tags from header
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wp_generator' );
+		remove_action( 'wp_head', 'feed_links', 2 );
+		remove_action( 'wp_head', 'index_rel_link' );
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
+		remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+		remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+		remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+		remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+		remove_action( 'wp_head',      'rest_output_link_wp_head'              );
+		remove_action( 'wp_head',      'wp_oembed_add_discovery_links'         );
+		remove_action( 'template_redirect', 'rest_output_link_header', 11 );
+	
+	// ******************** Clean up WordPress Header END ********************** //
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Fonctions personnelles
+ * 
+ * @package TLM
+ * @author Karl Clémence
+ * @param string $field - Le champ à vérifier (au format chaine de caractères)
+ * @param string $name - Nature du champ permettant de personnaliser le message par défaut (au format chaine de caractères)
+ * @return string - La valeur du champ ou la valeur par défaut
+ * 
+ * 
+**/
+	function verifyTextField(string $field, string $name = 'Valeur'): string{
+		//syntaxe ternaire qui permet de condenser les conditions
+		// Après le ? c'est ce qui est exécuté si la condiiton est vraie
+		// Après le : c'est ce qui est exécuté si la condition est fausse
+
+		return !empty(trim($field)) ? $field : $name.' par défaut';
+	}

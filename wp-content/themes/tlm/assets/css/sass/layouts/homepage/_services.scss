@@ -1,0 +1,33 @@
+@use '../../utils/variables' as var;
+
+#servicesRapides{
+    width: 835px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;    
+    left: 50%;
+    transform: translateX(-50%);
+    border-top-left-radius: var.$borderRadius; ;
+    border-top-right-radius: var.$borderRadius; ;
+    padding: 0rem 2.5rem 0rem 2.5rem;
+    display: flex;
+    background-color: #F5F5DC;
+
+    a{
+        display: block;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+
+
+        &:hover{
+            
+            svg{
+                width: 100px;
+            }
+        }
+    }
+    
+}
