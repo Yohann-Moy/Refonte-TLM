@@ -1,42 +1,40 @@
-<?php 
-
+<?php
 /**
  * Latest News
  *
  * @package TLM
  * @author Karl Clémence
- */
+ */?>
 
-?>
-
-<?php 
-
+<?php
 $latestStats = get_field('statistics');
-$statsTitle = verifyTextField($latestStats['title'], 'Titre');
-?>
+$statsTitle = !empty($latestStats['title']) ? esc_html($latestStats['title']) : 'Titre';
+$stats = $latestStats['all_stats']; ?>
 
-<div class="statistics">
+
+<section id="statistics">
     <h2><?= $statsTitle; ?></h2>
-    <div class="statContainer">
-        <?php 
-        $stats = $latestStats['all_stats'];
-        ?>
-
-
-
-        <?php foreach($stats as $stat):
-                ?>
-                <pre>
-                <?php //var_dump($stat) ;?>
-                <?php var_dump($stat['main_marker']['value']) ;?>
-                <?php var_dump($stat['main_marker']['unit']) ;?>
-                <?php var_dump($stat['subtitle']) ;?>
-                <?php var_dump($stat['descri']) ;?>
-
-
-                </pre>
-            
-
-
-    <?php endforeach; ?>
+    <div class="statsContainer">
+        <?php foreach ($stats as $stat): ?>
+            <div class="item">
+                <div class="roundedBox">
+                    <?php 
+                        $classe="generic";
+                        if ($stat['main_marker']['unit'] === "%"):
+                            $classe="pourcentage";
+                        endif;
+                    ?>
+                    <p class="<?= $classe; ?>">
+                        <span class="value"><?= $stat['main_marker']['value']; ?></span>
+                        <?php 
+                            if (!empty($stat['main_marker']['unit']) && ($stat['main_marker']['unit']) !== "/ (rien)"): ?>
+                                <span class="unit"><?= $stat['main_marker']['unit']; ?></span>
+                        <?php endif; ?>
+                    </p>
+                </div>
+                <h3><?= $stat['subtitle']; ?></h3>
+                <p class="description"><?= $stat['descri']; ?></p>
+            </div>
+        <?php endforeach; ?>
     </div>
+</section>
