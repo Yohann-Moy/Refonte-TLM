@@ -84,36 +84,8 @@ html {
   font-weight: -900;
   font-display: swap;
 }
-h1 {
-  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
-  font-weight: 900;
-  font-size: 64px;
-  text-align: center;
-  color: #422D00;
-}
-h1.hb_title {
-  font-size: 80px;
-  color: white;
-  filter: drop-shadow(0rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.25));
-}
-
-h2 {
-  font-family: "MPlus Rounded 1c", sans-serif;
-  font-weight: 900;
-  font-size: 64px;
-  text-align: center;
-  color: #422D00;
-  filter: drop-shadow(0rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.25));
-}
-
-.hb_subtitle {
-  font-family: "La belle Aurore", sans-serif;
-  font-weight: 500;
-  font-size: 64px;
-  text-align: center;
-  color: white;
-  filter: drop-shadow(0rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.25));
-  margin-top: 3.125rem;
+p {
+  font-size: 1.5rem;
 }
 
 header {
@@ -164,6 +136,206 @@ header {
 }
 #servicesRapides a:hover svg {
   width: 100px;
+}
+
+#latestNews {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  margin-top: 15.625rem;
+}
+#latestNews .newsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  width: 100%;
+}
+#latestNews .newsContainer .mainArticle {
+  width: 60%;
+  min-width: 0;
+}
+#latestNews .newsContainer .mainArticle img {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.625rem;
+}
+#latestNews .newsContainer .mainArticle .textContainer {
+  display: flex;
+  padding-left: 3rem;
+  align-items: flex-start;
+  padding-right: 3rem;
+  flex-direction: column;
+}
+#latestNews .newsContainer .mainArticle .textContainer.date {
+  margin-top: 1rem;
+}
+#latestNews .newsContainer .mainArticle h3 {
+  text-align: left;
+}
+#latestNews .newsContainer .sideSection {
+  width: 40%;
+  max-width: 28.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#latestNews .newsContainer .sideSection .sideArticle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  min-width: 0;
+}
+#latestNews .newsContainer .sideSection .sideArticle img {
+  max-width: 28.125rem;
+  height: 11.6563rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.625rem;
+}
+#latestNews .newsContainer .sideSection .sideArticle .textContainer {
+  display: block;
+  width: 25.2rem;
+  height: 11.6563rem;
+  position: absolute;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+#latestNews .newsContainer .sideSection .sideArticle .textContainer p {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+#latestNews .newsContainer .sideSection .sideArticle .textContainer p.title {
+  text-transform: uppercase;
+  margin-top: 3.8125rem;
+}
+#latestNews .newsContainer .sideSection .sideArticle .textContainer p.date {
+  font-size: 1rem;
+  margin-top: 1.5625rem;
+}
+
+#statistics {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+}
+#statistics .statsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+#statistics .statsContainer .item {
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+#statistics .statsContainer .roundedBox {
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 900;
+  border-radius: 100%;
+  border: 10px solid #422D00;
+  filter: drop-shadow(-6px 0px 15px rgba(0, 0, 0, 0.5));
+  background: #F5F5DC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  width: 250px;
+  height: 250px;
+  box-sizing: border-box;
+}
+#statistics .statsContainer p {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+#statistics .statsContainer p .value {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+#statistics .statsContainer p .unit {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+#statistics .statsContainer p.generic .unit {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#statistics .statsContainer p.pourcentage {
+  flex-direction: row;
+}
+#statistics .statsContainer p.pourcentage .unit {
+  font-size: 4.5rem;
+}
+#statistics .statsContainer .description {
+  margin-top: 2rem;
+  display: block;
+}
+
+body.home h1 {
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  text-align: center;
+  color: #422D00;
+}
+body.home h1.hb_title {
+  font-size: 80px;
+  color: white;
+  filter: drop-shadow(0rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.25));
+}
+body.home h2 {
+  margin-bottom: 6rem;
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 900;
+  font-size: 64px;
+  text-align: center;
+  color: #422D00;
+  text-transform: uppercase;
+}
+body.home h3 {
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 600;
+  font-size: 2.25rem;
+  text-align: center;
+  margin-top: 3rem;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #422D00;
+}
+body.home p {
+  font-family: "MPlus Rounded 1c", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  margin-left: 0;
+  margin-right: 0;
+  color: #422D00;
+}
+body.home p.date {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #422D00;
+}
+body.home .hb_subtitle {
+  font-family: "La belle Aurore", sans-serif;
+  font-weight: 500;
+  font-size: 64px;
+  text-align: center;
+  color: white;
+  filter: drop-shadow(0rem 0.25rem 0.9375rem rgba(0, 0, 0, 0.25));
+  margin-top: 3.125rem;
 }
 
 /*# sourceMappingURL=home.css.map */

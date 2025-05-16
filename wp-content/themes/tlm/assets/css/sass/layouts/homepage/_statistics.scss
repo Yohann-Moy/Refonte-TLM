@@ -1,1 +1,78 @@
 @use '../../utils/variables' as var;
+
+#statistics {
+    width: 100%;
+    max-width: var.$mxw;
+    margin: auto;
+
+
+    .statsContainer {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        
+
+        .item {
+            margin: 0;
+            text-align: center;  
+            width: 100%;            
+        }
+
+        .roundedBox {
+            font-family: 'MPlus Rounded 1c ExtraBold', sans-serif;
+            font-weight: 900;
+            border-radius: 100%;
+            border: 10px solid var.$primaryColour;
+            filter: drop-shadow(-6px 0px 15px rgba(0, 0, 0, 0.5)); 
+            background: #F5F5DC;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 2rem;
+            margin-right: 2rem;
+            width: 250px;
+            height: 250px;
+            box-sizing: border-box;
+            
+        }
+
+        p{
+            display: flex;
+            flex-direction: column;
+            margin-top: 0;
+
+            .value {
+                font-size: 4.5rem; 
+                line-height: 1;
+            }
+
+            .unit {
+                font-size: 1.5rem; 
+                line-height: 1; 
+            }
+            
+            &.generic{
+                .unit{
+                    position: absolute;
+                    bottom: 50px;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            &.pourcentage{
+                flex-direction: row;
+                
+                .unit{
+                    font-size: 4.5rem;
+                }
+            }
+        }
+
+        .description{
+            margin-top: 2rem;
+            display: block;
+        }
+    }
+}
