@@ -1,2 +1,91 @@
 @use '../../utils/variables' as var;
 
+#latestNews {
+    width: 100%;
+    max-width: var.$mxw;
+    margin: auto;
+    margin-top: 15.625rem;
+
+    .newsContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 3rem;
+        width: 100%;
+
+        .mainArticle {
+            width: 60%; 
+            min-width: 0; 
+
+            img {
+                width: 100%;
+                height: 25rem; 
+                object-fit: cover;
+                object-position: center;
+                border-radius: .625rem;
+            }
+            .textContainer {
+                display: flex;
+                padding-left: 3rem;
+                align-items: flex-start;
+                padding-right: 3rem;
+                flex-direction: column;
+
+                &.date{
+                    margin-top: 1rem;
+                }
+            }
+
+            h3{
+                text-align: left;
+            }
+        }
+        .sideSection {
+            width: 40%;
+            max-width: 28.125rem; 
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; 
+
+            .sideArticle {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem; 
+                width: 100%;
+                min-width: 0; 
+
+                img {
+                    max-width: 28.125rem; 
+                    height: 11.6563rem; 
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: .625rem;
+                }
+                .textContainer {
+                    display: block;
+                    width: 25.2rem;
+                    height: 11.6563rem;
+                    position: absolute;
+                    padding-left: 1.5rem;
+                    padding-right: 1.5rem;
+
+                    p{
+                        color: white;
+                        font-size: 1.5rem;
+                        font-weight: 900;
+
+
+                        &.title{
+                            text-transform: uppercase;
+                            margin-top: 3.8125rem;
+                        }
+                        &.date{
+                            font-size: 1rem;
+                            margin-top: 1.5625rem;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}

@@ -315,3 +315,45 @@ function crunchify_remove_version() {
 
 		return !empty(trim($field)) ? $field : $name.' par défaut';
 	}
+
+	//Custom Post Type/
+
+	function cw_post_type_events() {
+		$supports = array(
+		'title', // post title
+		//'editor', // post content
+		'thumbnail', // featured images
+		'post-formats', // post formats
+		);
+		$labels = array(
+		'name' => _x('Evènements', 'plural'),
+		'singular_name' => _x('évènement', 'singular'),
+		'menu_name' => _x('Evènements', 'admin menu'),
+		'name_admin_bar' => _x('Evènements', 'admin bar'),
+		'add_new' => _x('Ajouter', 'add new'),
+		'add_new_item' => ('Ajouter un évènement'),
+		'new_item' => ('Nouvel évènement'),
+		'edit_item' => ("Mettre à jour l'évènement"),
+		'view_item' => ("Voir l'évènement"),
+		'all_items' => ('Tous les évènements'),
+		'search_items' => ('Rechercher un évènement'),
+		'not_found' => __('Aucun évènement trouvé'),
+		);
+		$args = array(
+		'supports' => $supports,
+		'labels' => $labels,
+		'public' => true,
+		'query_var' => false,
+		'rewrite' => array(
+			'slug' => 'évènement', // Conserver le terme 'histoire' au singulier pour conserver la pagination
+			'with_front' => false, // Retire /blog devant l'URL
+		),
+		// 'taxonomies'  => array( 'category' ),
+		'has_archive' => false,
+		'hierarchical' => false,
+		'show_ui'            => true,  // Affiche l'interface d'administration
+		'show_in_menu'       => true,  // Montre dans le menu d'administration
+		);
+		register_post_type('évènements', $args);
+	}
+	add_action('init', 'cw_post_type_events');
