@@ -1,78 +1,54 @@
-
-
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $empty = false;         
+header('Content-Type: application/json');
 
-    $erreurs = [];
-    $donnees = [];
-    $champs = ['nom', 'prenom', 'email', 'objet', 'message'];
-
-    $regexNom = "/^[a-zA-ZÀ-ÿçÇ\-' ]{2,20}$/u"; 
-    $regexMessage = "/^[a-zA-ZÀ-ÿçÇ0-9\s\-\.,!?()'\"éèêëàâäîïôöùûüç]{20,256}$/u";
-
-    foreach ($champs as $champ) {
-        $val = trim($_POST[$champ] ?? '');  
-
-        if ($val === '') {
-            $empty = true;  
-        }
-
-        
-        $donnees[$champ] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-    }
-
-  
-    if (!preg_match($regexNom, $donnees['nom'])) {
-        $erreurs[] = " Nom invalide.";
-    }
-
-    if (!preg_match($regexNom, $donnees['prenom'])) {
-        $erreurs[] = " Prénom invalide.";
-    }
-
-    if (!filter_var($donnees['email'], FILTER_VALIDATE_EMAIL)) {
-        $erreurs[] = " Adresse email invalide.";
-    }
-
-    if (empty($donnees['objet'])) {
-        $erreurs[] = " Objet non sélectionné.";
-    }
-
-    if (!preg_match($regexMessage, $donnees['message'])) {
-        $erreurs[] = " Le message doit faire entre 20 et 256 caractères.";
-    }
-
-  
-    if (!isset($_POST['cgu'])) {
-        $erreurs[] = " Vous devez accepter les conditions générales d’utilisation.";
-    }
-
-   
-    if ($empty) {
-        echo "<p style='color:red;'> Tous les champs doivent être remplis.</p>";
-    } elseif (!empty($erreurs)) {
-        foreach ($erreurs as $e) {
-            echo "<p style='color:red;'>$e</p>";
-        }
-    } else {
-        $destinataire = "mairie@tracylemont.fr";  
-        $sujet = "📩 Nouveau message : " . $donnees['objet'];
-        $contenu = "Nom : {$donnees['nom']}\n";
-        $contenu .= "Prénom : {$donnees['prenom']}\n";
-        $contenu .= "Email : {$donnees['email']}\n";
-        $contenu .= "Objet : {$donnees['objet']}\n\n";
-        $contenu .= "Message :\n{$donnees['message']}\n";
-
-    
-        wp_mail($destinataire, $sujet, $contenu);
-
-        echo "<p style='color:green;'>✅ Votre message a bien été envoyé !</p>";
-    }
-
-} else {
-    wp_redirect(home_url());
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    echo json_encode(['success' => false, 'message' => "Méthode non autorisée."]);
     exit;
 }
+
+$champs = ['nom', 'prenom', 'email', 'objet', 'message'];
+$donnees = [];
+$erreurs = [];
+
+foreach ($champs as $champ) {
+    $val = trim($_POST[$champ] ?? '');
+    if ($val === '') {
+        $erreurs[$champ] = "Le champ $champ est requis.";
+    } else {
+        $donnees[$champ] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+    }
+}
+
+if (!filter_var($donnees['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
+    $erreurs['email'] = "Email invalide.";
+}
+
+if (!isset($_POST['cgu'])) {
+    $erreurs['cgu'] = "Vous devez accepter les CGU.";
+}
+
+if (!empty($erreurs)) {
+    echo json_encode(['success' => false, 'erreurs' => $erreurs]);
+    exit;
+}
+
+// Construction du mail
+$destinataire = "mairie@tracylemont.fr";
+$sujet = "📩 Nouveau message : " . $donnees['objet'];
+$message = "Nom : {$donnees['nom']}\n";
+$message .= "Prénom : {$donnees['prenom']}\n";
+$message .= "Email : {$donnees['email']}\n";
+$message .= "Objet : {$donnees['objet']}\n";
+$message .= "Message :\n{$donnees['message']}\n";
+
+// Envoi
+$envoye = mail($destinataire, $sujet, $message);
+
+if ($envoye) {
+    echo json_encode(['success' => true, 'message' => "Votre message a bien été envoyé ✅"]);
+} else {
+    echo json_encode(['success' => false, 'message' => "Erreur lors de l’envoi. Réessayez."]);
+}
+exit;
 ?>
