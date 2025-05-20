@@ -17,8 +17,8 @@ $args = [
     'post_status' => 'publish'
 ];
 $posts = get_posts($args);
-?>
-
+// Debugging line to check the posts
+?>  
 <section id="latestNews">
     <h2><?= $newsTitle ?></h2>
 

@@ -217,6 +217,43 @@ header {
   margin-top: 1.5625rem;
 }
 
+.eventsContainer {
+  width: 95%;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  gap: 2rem;
+  justify-content: center;
+}
+.eventsContainer .eventArticle {
+  width: 25%;
+  max-width: 27.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.eventsContainer .eventArticle .eventImg {
+  max-width: 26.875rem;
+  max-height: 15.625rem;
+  width: 100%;
+}
+.eventsContainer .eventArticle .textContainer h3 {
+  color: white;
+  font-size: 2.25rem;
+}
+.eventsContainer .eventArticle .textContainer .date {
+  font-size: 2.5rem;
+  color: white;
+}
+.eventsContainer .eventArticle .textContainer .location {
+  font-size: 1.5rem;
+  color: white;
+}
+.eventsContainer .eventArticle .textContainer .description {
+  font-size: 1.5rem;
+  color: white;
+}
+
 #statistics {
   width: 100%;
   max-width: 1400px;

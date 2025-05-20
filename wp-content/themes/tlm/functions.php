@@ -321,13 +321,13 @@ function crunchify_remove_version() {
 	function cw_post_type_events() {
 		$supports = array(
 		'title', // post title
-		//'editor', // post content
+		'editor', // post content
 		'thumbnail', // featured images
 		'post-formats', // post formats
 		);
 		$labels = array(
 		'name' => _x('Evènements', 'plural'),
-		'singular_name' => _x('évènement', 'singular'),
+		'singular_name' => _x('evenement', 'singular'),
 		'menu_name' => _x('Evènements', 'admin menu'),
 		'name_admin_bar' => _x('Evènements', 'admin bar'),
 		'add_new' => _x('Ajouter', 'add new'),
@@ -345,7 +345,7 @@ function crunchify_remove_version() {
 		'public' => true,
 		'query_var' => false,
 		'rewrite' => array(
-			'slug' => 'évènement', // Conserver le terme 'histoire' au singulier pour conserver la pagination
+			'slug' => 'evenement', // Conserver le terme 'histoire' au singulier pour conserver la pagination
 			'with_front' => false, // Retire /blog devant l'URL
 		),
 		// 'taxonomies'  => array( 'category' ),
@@ -354,6 +354,6 @@ function crunchify_remove_version() {
 		'show_ui'            => true,  // Affiche l'interface d'administration
 		'show_in_menu'       => true,  // Montre dans le menu d'administration
 		);
-		register_post_type('évènements', $args);
+		register_post_type('evenements', $args);
 	}
 	add_action('init', 'cw_post_type_events');
