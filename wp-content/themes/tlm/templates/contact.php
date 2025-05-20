@@ -7,20 +7,13 @@
  * @author Lynda El Kolli
  */
 
-get_header(); 
+get_header();
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <title>Formulaire de contact</title>
-  <script defer src="script.js"></script>
-
+<script>
+  const traitementUrl = "<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>";
+</script>
 <main>
-    
-  
-    
+
 <h1><?php echo get_the_title(); ?></h1>
   <div class="content">
     <?php echo get_the_content(); ?> 
@@ -71,10 +64,6 @@ get_header();
      
 
 </main>
-<script>
-  const traitementUrl = "<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>";
-</script>
-<script src="<?php echo get_template_directory_uri(); ?>/js/contact.js"></script>
 
 <?php
 

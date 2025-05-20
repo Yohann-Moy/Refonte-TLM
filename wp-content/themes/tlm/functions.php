@@ -146,6 +146,13 @@ function tlm_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Si la page chargée a pour slug (url) : contact
+	if(is_page('contact')):
+		// Chargement du fichier script.js qui se situe au sein du dossier templates du répertoire du thème (tlm).
+		// Ce fichier est chargé avec une stratégie de chargement diférée (defer).
+		wp_enqueue_script('tlm-contact', get_template_directory_uri() . '/templates/script.js', array(), _S_VERSION, ['strategy'  => 'defer']);
+	endif;
 }
 add_action( 'wp_enqueue_scripts', 'tlm_scripts' );
 
