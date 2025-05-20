@@ -33,7 +33,7 @@ if (!empty($erreurs)) {
     exit;
 }
 
-// Construction du mail
+
 $destinataire = "mairie@tracylemont.fr";
 $sujet = "📩 Nouveau message : " . $donnees['objet'];
 $message = "Nom : {$donnees['nom']}\n";
@@ -42,7 +42,7 @@ $message .= "Email : {$donnees['email']}\n";
 $message .= "Objet : {$donnees['objet']}\n";
 $message .= "Message :\n{$donnees['message']}\n";
 
-// Envoi
+
 $envoye = mail($destinataire, $sujet, $message);
 
 if ($envoye) {

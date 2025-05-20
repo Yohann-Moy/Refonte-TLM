@@ -37,15 +37,16 @@
   
      
       try {
-        const response = await fetch("traitement-contact.php", {
+        const response = await fetch(traitementUrl, {
           method: "POST",
           body: formData
         });
   
-        const result = await response.text();
-  
+        const result = await response.json();
         document.getElementById("resultat").innerHTML = result;
         form.reset();
+
+        
   
       } catch (error) {
         document.getElementById("resultat").innerHTML = "Erreur lors de l'envoi.";

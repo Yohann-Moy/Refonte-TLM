@@ -10,6 +10,13 @@
 get_header(); 
 ?>
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formulaire de contact</title>
+  <script defer src="script.js"></script>
+
 <main>
     
   
@@ -20,7 +27,7 @@ get_header();
 
     <div id="resultat"></div>
 
-    <form id="contactForm" method="POST" action="<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>"
+    <form id="contactForm" method="POST" action="<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>">
       <div>
         <input type="text" name="nom" id="nom" placeholder="Votre nom *" required>
         <span class="error" id="error-nom"></span>
@@ -64,7 +71,11 @@ get_header();
      
 
 </main>
-<script src="<?php echo get_template_directory_uri(); ?>/templates/mon-script-contact.js"></script>
+<script>
+  const traitementUrl = "<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>";
+</script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/contact.js"></script>
+
 <?php
 
 get_footer(); 
