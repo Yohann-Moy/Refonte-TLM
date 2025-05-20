@@ -17,7 +17,10 @@ $catchPhrase = verifyTextField($heroBanner['catch_phrase'], 'Phrase d\'accroche'
 
 ?>
     <div class="heroBanner">
-        <img src="<?php echo $heroBanner['bg_img']['url']; ?>" alt="<?php echo $heroBanner['bg_img']['alt']; ?>" />
+        <?php
+            $imgId = is_array($heroBanner['bg_img']) ? $heroBanner['bg_img']["ID"] : 0;
+            echo generate_img_tag($imgId, 'full');
+        ?>
         <section>
             <h1 class="hb_title"><?php echo $title; ?></h1>
             <p class="hb_subtitle" ><?php echo $catchPhrase; ?></p>

@@ -358,3 +358,41 @@ function crunchify_remove_version() {
 		register_post_type('event', $args);
 	}
 	add_action('init', 'cw_post_type_events');
+
+
+	// Fonction qui permet de gérer les images
+	function generate_img_tag(int $attachementID = 0, $size = 'thumbnail') :string{
+
+		// Retourne 0 si l'image n'a pas encore éte ajouté
+				
+				if($attachementID === 0):
+					// Y'a pas d'image de définie et donc par conséquent :
+					// Afficher l'image de base
+					// Et afficher l'alt de base qui spécifie que c'est une image d'illustration par défaut
+		
+					if($size === 'medium'):
+						$imgLink = get_template_directory_uri() . '/assets/img/medium_placeholder.webp';
+					else:
+						$imgLink = get_template_directory_uri() . '/assets/img/placeholder.webp';
+					endif;
+
+					$imgAlt = 'Illustration non définie par le webmaster';
+		
+				else:
+					// Y'a une image de définie
+					// Afficher l'image associée au post
+					// $imgLink = get_the_post_thumbnail_url($post->ID);
+					$imgLink = wp_get_attachment_image_url($attachementID, $size, false);
+		
+					// Regarder si il y a un ALT défini
+					$thumbnailAlt = get_post_meta($attachementID, '_wp_attachment_image_alt', true);
+					if(!empty($thumbnailAlt)):
+						$imgAlt = $thumbnailAlt;
+					else:
+						$imgAlt = 'Description alternative non renseignée';
+					endif;
+					// Si non, afficher l'alt de base qui spécifie que c'est une image d'illustration qui n'a pas de ALT renseigné
+				endif;
+
+				return '<img src="' . $imgLink . '" alt="' . $imgAlt . '">';
+	}
