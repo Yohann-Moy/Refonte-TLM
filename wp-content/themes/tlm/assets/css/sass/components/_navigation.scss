@@ -1,1 +1,287 @@
-@use '../utils/variables' as var;
+@use '../utils/variables'as var;
+
+// 
+body.admin-bar nav {
+    top: 32px;
+}
+
+header {
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    background-color: transparent;
+    transition: var.$smallTransi;
+
+    &.coloured{
+        background-color: var.$header-and-footer;
+        box-shadow: 0 0 4px 4px rgba(0,0,0,.16);
+
+        .logo-container{
+            img{
+                width: 100px;
+                height: 99px;
+            }
+        }
+    }
+
+    &.on-init{
+        .logo-container{
+            img{
+                transition: 0s !important;
+            }
+        }
+    }
+
+
+    // Gestion du logo du site dans la barre de navigation
+    .logo-container {
+        img {
+            width: 140px;
+            height: 138px;
+            transition: var.$smallTransi;
+        }
+
+        a {
+            display: block;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+
+    // Barre de navigation dans son ensemble
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1500px;
+        width: 100%;
+        margin: auto;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        box-sizing: border-box;
+
+        // Container des onglets
+        ul {
+            display: flex;
+            flex-direction: row;
+
+            li {
+                position: relative;
+
+                // Tous les éléments de liste qui n'ont pas la classe ".current-menu-item"
+                &:not(.current-menu-item) {
+                    a::after {
+                        width: 0;
+                        transition: var.$smallTransi;
+                    }
+
+                    a:hover,
+                    a:focus {
+                        &::after {
+                            width: calc(100% - 3rem);
+                        }
+                    }
+                }
+            }
+
+            // Tous les liens des onglets, sans exception.
+            a {
+                padding: 0.75rem 1.5rem;
+                outline: none; // Quand j'utilise le focus clavier avec tabulation, on retire la box bleue par défaut
+                display: block;
+                font-family: var.$primaryTypo;
+                color: var.$primaryColour;
+                font-weight: 600;
+                letter-spacing: 5%;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: calc(100% - 3rem);
+                    height: 3px;
+                    border-radius: 10px;
+                    background-color: var.$primaryColour;
+                    position: absolute;
+                    bottom: 0;
+                    left: 1.5rem;
+                }
+            }
+        }
+    }
+
+    // Bouton permettant d'afficher le burger-menu
+    #burger-toggler {
+        display: none;
+        position: relative;
+        height: 24px;
+        width: 35px;
+        transition: var.$smallTransi;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        outline: none;
+
+        // Barres TOP & BOTTOM du burger
+        &:after, &:before{
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var.$primaryColour;
+            transition: var.$smallTransi;
+            border-radius: 4px;
+        }
+
+        &::after{
+            top: 0;
+        }
+
+        &::before{
+            top: calc(100% - 3px);
+        }
+
+        // Barre CENTRE du burger
+        span{
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: var.$primaryColour;
+            transition: 0.1s;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+            border-radius: 4px;
+        }
+
+        // Gestion de l'animation au survol du bouton burger
+        &:hover, &:focus{
+
+            span{
+                left: 0.2rem;
+                right: 0.2rem;
+            }
+
+            &::after{
+                top: 0.2rem;
+            }
+    
+            &::before{
+                top: calc((100% - 0.2rem) - 3px);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1199px) {
+
+    header {
+
+        .logo-container {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 11;
+        }
+
+        #burger-toggler {
+            display: block;
+        }
+
+        nav {
+            flex-direction: column;
+
+            .main-navigation {
+                width: 100%;
+            }
+
+            ul {
+                right: -100%;
+                position: absolute;
+                top: 0;
+                padding-top: 140px;
+                transition: var.$smallTransi right;
+                width: 100%;
+                background-color: var.$header-and-footer;
+                flex-direction: column;
+                text-align: center;
+                height: calc(100vh - 140px);
+
+                li{
+
+                    a::after{
+                        display: none;
+                    }
+
+                    &.current-menu-item{
+                        a{
+                            background-color: var.$primaryColour;
+                            color: var.$header-and-footer;
+
+                            &:hover, &:focus{
+                                background-color: var.$primaryColour;
+                            }
+                        }
+                    }
+
+                    // Survol des onglet du menu en mode mobile
+                    a:hover, a:focus{
+                        background-color: lighten(var.$primaryColour, 77%);
+                    }
+                }
+            }
+        }
+
+        &.active {
+
+            ul {
+                right: 0;
+            }
+
+            #burger-toggler {
+
+                transform: scale(100%) rotate(360deg);
+
+                &::after, &::before{
+                    top: 50%;
+                }
+
+                &::after{
+                    transform: translateY(-50%) rotate(45deg);
+                }
+
+                &::before{
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+
+                span{
+                    opacity: 0;
+                }
+
+                &:hover, &:focus{
+                    transform: scale(80%) rotate(360deg);
+                }
+            }
+        }
+
+    }
+
+
+}
+
+@media screen and (max-width: 782px) {
+    body.admin-bar nav {
+        top: 46px;
+    }
+}

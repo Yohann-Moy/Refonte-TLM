@@ -23,38 +23,26 @@
 <body <?php body_class(); ?>>
 <h1>TEST</h1>
 <?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'tlm' ); ?></a>
+	<header class="on-init">
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$tlm_description = get_bloginfo( 'description', 'display' );
-			if ( $tlm_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $tlm_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		<nav>
+			<div class="logo-container">
+				<?php the_custom_logo(); ?>
+				<button id="burger-toggler">
+					<span></span>
+				</button>
+			</div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'tlm' ); ?></button>
 			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
+				// Tableau d'arguments permettant d'aller chercher le menu adéquat
+				$args = [
+					"menu_class" => "primary-menu", // Pour ajouter une classe sur l'élément UL du menu
+					"name"=> "Main Menu", // Le nom du menu que l'on souhaite afficher
+					"container_class" => "main-navigation",
+				];
+
+				// Va chercher le menu selon les arguments passés en paramètre et affiche le menu par la même occasion.
+				wp_nav_menu($args);
 			?>
-		</nav><!-- #site-navigation -->
+		</nav>
 	</header><!-- #masthead -->

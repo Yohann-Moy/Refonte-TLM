@@ -7,8 +7,10 @@
  * @author Lynda El Kolli
  */
 
-get_header(); 
-?>
+
+ get_header(); ?>
+
+
 
 <main>
     

@@ -1,1 +1,50 @@
 @use '../../utils/variables' as var;
+
+footer{
+
+    background-color: var.$header-and-footer;
+    box-shadow: 0 0 4px 4px rgba(0,0,0,.16);
+    
+    .icon{
+        background-image: url("../../../img/spritemap.webp");
+        display: block;
+        background-repeat: no-repeat;
+
+        &.location, &.phone, &.mail{
+            width: 40px;
+            height: 40px;
+            background-position-y: bottom;
+            background-size: 155px;
+        }
+
+        &.location{
+            background-position-x: 1px;
+        }
+
+        &.phone{
+            background-position-x: -76px;
+        }
+
+        &.mail{
+            background-position-x: -37px;
+        }
+
+        &.cclo, &.oise{
+            width: 295px;
+            height: 100px;
+            background-position-x: right;
+            background-size: 310px;
+        }
+
+        &.cclo{
+            background-position-y: center;
+        }
+
+        &.oise{
+            background-position-y: top;
+        }
+
+
+    }
+
+}
