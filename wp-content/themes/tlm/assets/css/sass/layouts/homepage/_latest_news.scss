@@ -38,6 +38,16 @@
             h3{
                 text-align: left;
             }
+
+            a{
+                text-decoration: none;
+                padding: 12px 32px;
+                background-color: var.$tertiaryColour;
+                font-family: 'MPlus Rounded 1c', sans-serif;
+                color: #f5F5DC;
+                border-radius: 10px;
+                margin-top: 32px;
+            }
         }
         .sideSection {
             width: 40%;
@@ -45,6 +55,18 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem; 
+
+            a{
+                text-decoration: none;
+                padding: 12px 32px;
+                background-color: #f5F5DC ;
+                font-family: 'MPlus Rounded 1c', sans-serif;
+                color: var.$tertiaryColour;
+                border-radius: 10px;
+                border: 2px solid var.$tertiaryColour;
+                margin: auto;
+                margin-top: 40px;   
+            }
 
             .sideArticle {
                 display: flex;
@@ -83,6 +105,7 @@
                             margin-top: 1.5625rem;
                         }
                     }
+                    
                 }
             }
             

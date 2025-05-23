@@ -15,28 +15,59 @@
         flex-direction: column;
         align-items: center;
 
-        .eventImg{
+        img{
             max-width: 26.875rem;
             max-height: 15.625rem ;
             width: 100%;
         }
 
         .textContainer{
+            width: 100%;
+
+
             h3{
                 color: white;
                 font-size: 2.25rem;
+            }
+            .dates{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                p{
+                    font-weight: 900;
+                    text-transform: capitalize;
+                }
             }
             .date{
                 font-size: 2.50rem;
                 color: white;
             }
             .location{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
                 font-size: 1.5rem;
                 color: white;
+                margin-top: 2rem;
+
+                p{
+                    margin-top: 0;
+                    margin-left: 0.5rem;
+                    font-size: 1.5rem;
+                    color: white;
+                }
             }
+
             .description{
                 font-size: 1.5rem;
                 color: white;
+                text-align: left;
+            }
+
+            h3{
+                text-align: left;
             }
         }
     }
