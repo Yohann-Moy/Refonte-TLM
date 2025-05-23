@@ -23,6 +23,48 @@ foreach ($champs as $champ) {
     }
 }
 
+
+
+if (!empty($donnees['nom'])) {
+    if (strlen($donnees['nom']) < 2) {
+        $erreurs['nom'] = "Le nom doit contenir au moins 2 caractères.";
+    } elseif (!preg_match('/^[a-zA-ZÀ-ÿ\-\'\s]+$/u', $donnees['nom'])) {
+        $erreurs['nom'] = "Le nom ne doit contenir que des lettres et espaces.";
+    }
+}
+
+if (!empty($donnees['prenom'])) {
+    if (strlen($donnees['prenom']) < 2) {
+        $erreurs['prenom'] = "Le prénom doit contenir au moins 2 caractères.";
+    } elseif (!preg_match('/^[a-zA-ZÀ-ÿ\-\'\s]+$/u', $donnees['prenom'])) {
+        $erreurs['prenom'] = "Le prénom ne doit contenir que des lettres et espaces.";
+    }
+}
+
+if (!empty($donnees['email'])) {
+    if (!filter_var($donnees['email'], FILTER_VALIDATE_EMAIL)) {
+        $erreurs['email'] = "L'adresse email est invalide.";
+    }
+}
+
+if (!empty($donnees['objet'])) {
+    $objets_valides = ['Documents', 'RDV', 'Entreprise', 'Association', 'Autre'];
+    if (!in_array($donnees['objet'], $objets_valides)) {
+        $erreurs['objet'] = "Objet non valide.";
+    }
+}
+
+if (!empty($donnees['message'])) {
+    if (strlen($donnees['message']) < 10) {
+        $erreurs['message'] = "Le message doit contenir au moins 10 caractères.";
+    }
+}
+
+if (!isset($_POST['cgu'])) {
+    $erreurs['cgu'] = "Vous devez accepter les mentions légales.";
+}
+
+
 // En fait vous allez ajouter, ici, des conditions pour chacun des champs
 // Exemple : le champ ... contient au moins 3 caractères
 // Ca peut se faire via regex
@@ -36,9 +78,9 @@ if (!filter_var($donnees['email'] ?? '', FILTER_VALIDATE_EMAIL)) {
 }
 
 // Si le champ CGU n'est pas coché
-if (!isset($_POST['cgu'])) {
-    $erreurs['cgu'] = "Vous devez accepter les CGU.";
-}
+//if (!isset($_POST['cgu'])) {
+  //  $erreurs['cgu'] = "Vous devez accepter les CGU.";
+//}
 
 // Si le tableau $erreurs n'est pas vide (il y a eu au moins une erreur)
 if (!empty($erreurs)):
