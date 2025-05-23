@@ -88,7 +88,7 @@ p {
   font-size: 1.5rem;
 }
 
-body.admin-bar nav {
+body.admin-bar header {
   top: 32px;
 }
 
@@ -286,7 +286,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   }
 }
 @media screen and (max-width: 782px) {
-  body.admin-bar nav {
+  body.admin-bar header {
     top: 46px;
   }
 }
