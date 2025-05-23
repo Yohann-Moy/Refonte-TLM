@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<h1>TEST</h1>
+
 <?php wp_body_open(); ?>
 	<header class="on-init">
 
