@@ -372,12 +372,32 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 #latestNews .newsContainer .mainArticle h3 {
   text-align: left;
 }
+#latestNews .newsContainer .mainArticle a {
+  text-decoration: none;
+  padding: 12px 32px;
+  background-color: #1C7950;
+  font-family: "MPlus Rounded 1c", sans-serif;
+  color: #f5F5DC;
+  border-radius: 10px;
+  margin-top: 32px;
+}
 #latestNews .newsContainer .sideSection {
   width: 40%;
   max-width: 28.125rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+#latestNews .newsContainer .sideSection a {
+  text-decoration: none;
+  padding: 12px 32px;
+  background-color: #f5F5DC;
+  font-family: "MPlus Rounded 1c", sans-serif;
+  color: #1C7950;
+  border-radius: 10px;
+  border: 2px solid #1C7950;
+  margin: auto;
+  margin-top: 40px;
 }
 #latestNews .newsContainer .sideSection .sideArticle {
   display: flex;
@@ -430,32 +450,60 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   flex-direction: column;
   align-items: center;
 }
-.eventsContainer .eventArticle .eventImg {
+.eventsContainer .eventArticle img {
   max-width: 26.875rem;
   max-height: 15.625rem;
+  width: 100%;
+}
+.eventsContainer .eventArticle .textContainer {
   width: 100%;
 }
 .eventsContainer .eventArticle .textContainer h3 {
   color: white;
   font-size: 2.25rem;
 }
+.eventsContainer .eventArticle .textContainer .dates {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.eventsContainer .eventArticle .textContainer .dates p {
+  font-weight: 900;
+  text-transform: capitalize;
+}
 .eventsContainer .eventArticle .textContainer .date {
   font-size: 2.5rem;
   color: white;
 }
 .eventsContainer .eventArticle .textContainer .location {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.5rem;
+  color: white;
+  margin-top: 2rem;
+}
+.eventsContainer .eventArticle .textContainer .location p {
+  margin-top: 0;
+  margin-left: 0.5rem;
   font-size: 1.5rem;
   color: white;
 }
 .eventsContainer .eventArticle .textContainer .description {
   font-size: 1.5rem;
   color: white;
+  text-align: left;
+}
+.eventsContainer .eventArticle .textContainer h3 {
+  text-align: left;
 }
 
 #statistics {
   width: 100%;
   max-width: 1400px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 #statistics .statsContainer {
   display: flex;
@@ -514,6 +562,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   display: block;
 }
 
+
 footer {
   background-color: #fff9eb;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);
@@ -551,6 +600,11 @@ footer .icon.oise {
   background-position-y: top;
 }
 
+
+body.home section {
+  margin-top: 15.625rem;
+}
+
 body.home h1 {
   font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
   font-weight: 900;
@@ -571,6 +625,10 @@ body.home h2 {
   text-align: center;
   color: #422D00;
   text-transform: uppercase;
+}
+body.home h2#statistics {
+  margin-top: 10.9375rem;
+  margin-bottom: 0;
 }
 body.home h3 {
   font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
