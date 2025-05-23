@@ -17,8 +17,8 @@ $args = [
     'post_status' => 'publish'
 ];
 $posts = get_posts($args);
-?>
 
+?>  
 <section id="latestNews">
     <h2><?= $newsTitle ?></h2>
 
@@ -29,18 +29,25 @@ $posts = get_posts($args);
         <?php foreach ($posts as $post) : ?>
             <?php $postNumber++; ?>
             <?php if ($postNumber === 1) : ?>
-                <?php
-                // Récupérer l'alt spécifique pour l'article
-                $thumbnailID = get_post_thumbnail_id($post->ID);
-                $thumbnailAlt = get_post_meta($thumbnailID, '_wp_attachment_image_alt', true);
-                $thumbnailAlt = !empty($thumbnailAlt) ? $thumbnailAlt : 'Image d\'illustration';
-                ?>
                 <article class="mainArticle">
-                    <img src="<?= get_the_post_thumbnail_url($post->ID); ?>" alt="<?= $thumbnailAlt; ?>" />
+
+                <?php
+
+                    // Récupère l'image associée au post
+                    $imgId = get_post_thumbnail_id($post->ID);
+                    echo generate_img_tag($imgId, 'large');
+                ?>
+
                     <div class="textContainer">
-                        <h3><?= $post->post_title; ?></h3>
+                        <h3><?= verifyTextField($post->post_title, 'Titre'); ?></h3>
                         <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
-                        <p class="description"><?= get_the_excerpt($post->ID); ?></p>
+                        <p class="description">
+                            <?php
+                                // TODO : Faire en sorte de vérifier que l'article ait un contenu
+                                // Si il n'en a pas, ne pas l'afficher. 
+                                echo get_the_excerpt($post->ID);
+                            ?>
+                        </p>
                         <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article" title="Redirection vers l'article" class="readMore">Lire la suite</a>
                     </div>
                 </article>
@@ -53,21 +60,26 @@ $posts = get_posts($args);
             <?php foreach ($posts as $post) : ?>
                 <?php $postNumber++; ?>
                 <?php if ($postNumber !== 1) : ?>
-                    <?php
-                    $thumbnailID = get_post_thumbnail_id($post->ID);
-                    $thumbnailAlt = get_post_meta($thumbnailID, '_wp_attachment_image_alt', true);
-                    $thumbnailAlt = !empty($thumbnailAlt) ? $thumbnailAlt : 'Image d\'illustration';
-                    ?>
                     <article class="sideArticle">
-                        <img src="<?= get_the_post_thumbnail_url($post->ID); ?>" alt="<?= $thumbnailAlt; ?>" />
+                    <?php 
+                        // TODO : Gérer le fait que le contenu des articles soit sous forme de lien
+                        // Pour récupérer l'URL de chaque article : 
+                        // echo get_permalink($post->ID);
+                    ?>
+
+                    <?php
+                        $imgId = get_post_thumbnail_id($post->ID);
+                        echo generate_img_tag($imgId, 'medium');
+                    ?>
+
                         <div class="textContainer">
-                            <p class="title"><?= $post->post_title; ?></p>
+                            <p class="title"><?= verifyTextField($post->post_title); ?></p>
                             <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
                         </div>
                     </article>
                 <?php endif; ?>
             <?php endforeach; ?>
-            <a href="<?= get_permalink(get_option('page_for_posts')); ?>"  title="Redirection vers tous les articles" aria-label="Redirection vers tous les articles">Encore + d'actus</a>
+            <a href="<?= esc_url("/actualites"); ?>"  title="Redirection vers tous les articles" aria-label="Redirection vers tous les articles">Encore + d'actus</a>
         </div>
     <?php else : ?>
         <p>Aucun article trouvé.</p>

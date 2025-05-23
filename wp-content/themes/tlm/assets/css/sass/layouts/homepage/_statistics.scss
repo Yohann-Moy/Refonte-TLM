@@ -3,7 +3,8 @@
 #statistics {
     width: 100%;
     max-width: var.$mxw;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 
 
     .statsContainer {
@@ -74,5 +75,7 @@
             margin-top: 2rem;
             display: block;
         }
+
+        
     }
 }

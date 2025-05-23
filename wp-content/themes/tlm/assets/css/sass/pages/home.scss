@@ -3,12 +3,16 @@
 @use '../layouts/homepage/hero_banner';
 @use '../layouts/homepage/services';
 @use '../layouts/homepage/latest_news';
-@use '../layouts/homepage/upcoming_events';
+@use '../layouts/homepage/latest_events';
 @use '../layouts/homepage/statistics';
 @use '../layouts/homepage/activities';
 @use '../layouts/generic/footer';
 
 body.home{
+
+    section{
+        margin-top: 15.625rem;
+    }
 
     h1{
         font-family: 'MPlus Rounded 1c ExtraBold', sans-serif;
@@ -32,6 +36,11 @@ body.home{
         text-align: center;
         color: var.$primaryColour;
         text-transform: uppercase;
+
+        &#statistics{
+            margin-top: 10.9375rem;
+            margin-bottom: 0;
+        }
     }
     
     h3 {

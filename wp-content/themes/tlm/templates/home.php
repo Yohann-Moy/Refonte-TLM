@@ -12,6 +12,7 @@
     include_once(get_template_directory().'/template-parts/homepage/latest_news.php');
     include_once(get_template_directory().'/template-parts/homepage/latest_events.php');
     include_once(get_template_directory().'/template-parts/homepage/statistics.php');
+    include_once(get_template_directory().'/template-parts/homepage/activities.php');
 
 
     get_footer(); 
