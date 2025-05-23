@@ -59,6 +59,9 @@ get_header();
 
       <input type="submit" value="Envoyer">
     </form>
+
+    <div class="submit-results"></div>
+
   </div>
 </main>
      

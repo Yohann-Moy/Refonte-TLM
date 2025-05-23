@@ -20,6 +20,9 @@
       // (quand on clique sur le bouton d'envoi ça ne recharge plus la page)
       e.preventDefault();
 
+      // Vide l'élément qui a pour classe ".submit-results";
+      document.querySelector(".submit-results").innerHTML = "";
+
       // Videz toutes les erreurs
       document.querySelectorAll(".error").forEach(el => el.innerText = "");
       document.getElementById("resultat").innerText = "";
@@ -44,11 +47,11 @@
   
         // Récupérez le contenu de la response (ce que le fichier PHP a transmis)
         const result = await response.json();
-        console.log(result.erreurs);
 
         // C'est que l'envoi s'est bien passé
         if(result.success === true) {
-          
+          // Afficher un message de succès sur la pge
+          document.querySelector(".submit-results").innerHTML += `<p>Votre message nous a été transmis avec succès.</p>`;
         }
         // Une ou plusieurs erreurs ont eu lieu (c'est que result.success === false)
         else{
@@ -59,7 +62,8 @@
 
           // Afficher chaque erreur indépendament
           Object.values(result.erreurs).forEach(error => {
-            console.log(error);
+            // Injecter chaque erreur sous forme de liste à puce au sein d'un élément HTML.
+            document.querySelector(".submit-results").innerHTML += `<li class="error">${error}</li>`;
           })
         }
 
