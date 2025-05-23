@@ -88,8 +88,243 @@ p {
   font-size: 1.5rem;
 }
 
+body.admin-bar nav {
+  top: 32px;
+}
+
 header {
-  background-color: rgb(205, 188, 203);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  background-color: transparent;
+  transition: 0.3s;
+}
+header.coloured {
+  background-color: #fff9eb;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);
+}
+header.coloured .logo-container img {
+  width: 100px;
+  height: 99px;
+}
+header.on-init .logo-container img {
+  transition: 0s !important;
+}
+header .logo-container img {
+  width: 140px;
+  height: 138px;
+  transition: 0.3s;
+}
+header .logo-container a {
+  display: block;
+}
+header .logo-container a:focus {
+  outline: none;
+}
+header nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+header nav ul {
+  display: flex;
+  flex-direction: row;
+}
+header nav ul li {
+  position: relative;
+}
+header nav ul li:not(.current-menu-item) a::after {
+  width: 0;
+  transition: 0.3s;
+}
+header nav ul li:not(.current-menu-item) a:hover::after,
+header nav ul li:not(.current-menu-item) a:focus::after {
+  width: calc(100% - 3rem);
+}
+header nav ul a {
+  padding: 0.75rem 1.5rem;
+  outline: none;
+  display: block;
+  font-family: "MPlus Rounded 1c", sans-serif;
+  color: #422D00;
+  font-weight: 600;
+  letter-spacing: 5%;
+}
+header nav ul a::after {
+  content: "";
+  display: block;
+  width: calc(100% - 3rem);
+  height: 3px;
+  border-radius: 10px;
+  background-color: #422D00;
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+}
+header #burger-toggler {
+  display: none;
+  position: relative;
+  height: 24px;
+  width: 35px;
+  transition: 0.3s;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+header #burger-toggler:after, header #burger-toggler:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #422D00;
+  transition: 0.3s;
+  border-radius: 4px;
+}
+header #burger-toggler::after {
+  top: 0;
+}
+header #burger-toggler::before {
+  top: calc(100% - 3px);
+}
+header #burger-toggler span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #422D00;
+  transition: 0.1s;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  border-radius: 4px;
+}
+header #burger-toggler:hover span, header #burger-toggler:focus span {
+  left: 0.2rem;
+  right: 0.2rem;
+}
+header #burger-toggler:hover::after, header #burger-toggler:focus::after {
+  top: 0.2rem;
+}
+header #burger-toggler:hover::before, header #burger-toggler:focus::before {
+  top: calc(100% - 0.2rem - 3px);
+}
+
+@media screen and (max-width: 1199px) {
+  header .logo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 11;
+  }
+  header #burger-toggler {
+    display: block;
+  }
+  header nav {
+    flex-direction: column;
+  }
+  header nav .main-navigation {
+    width: 100%;
+  }
+  header nav ul {
+    right: -100%;
+    position: absolute;
+    top: 0;
+    padding-top: 140px;
+    transition: 0.3s right;
+    width: 100%;
+    background-color: #fff9eb;
+    flex-direction: column;
+    text-align: center;
+    height: calc(100vh - 140px);
+  }
+  header nav ul li a::after {
+    display: none;
+  }
+  header nav ul li.current-menu-item a {
+    background-color: #422D00;
+    color: #fff9eb;
+  }
+  header nav ul li.current-menu-item a:hover, header nav ul li.current-menu-item a:focus {
+    background-color: #422D00;
+  }
+  header nav ul li a:hover, header nav ul li a:focus {
+    background-color: #ffefcc;
+  }
+  header.active ul {
+    right: 0;
+  }
+  header.active #burger-toggler {
+    transform: scale(100%) rotate(360deg);
+  }
+  header.active #burger-toggler::after, header.active #burger-toggler::before {
+    top: 50%;
+  }
+  header.active #burger-toggler::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  header.active #burger-toggler::before {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  header.active #burger-toggler span {
+    opacity: 0;
+  }
+  header.active #burger-toggler:hover, header.active #burger-toggler:focus {
+    transform: scale(80%) rotate(360deg);
+  }
+}
+@media screen and (max-width: 782px) {
+  body.admin-bar nav {
+    top: 46px;
+  }
+}
+footer {
+  background-color: #fff9eb;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);
+}
+footer .icon {
+  background-image: url("../../../img/spritemap.webp");
+  display: block;
+  background-repeat: no-repeat;
+}
+footer .icon.location, footer .icon.phone, footer .icon.mail {
+  width: 40px;
+  height: 40px;
+  background-position-y: bottom;
+  background-size: 155px;
+}
+footer .icon.location {
+  background-position-x: 1px;
+}
+footer .icon.phone {
+  background-position-x: -76px;
+}
+footer .icon.mail {
+  background-position-x: -37px;
+}
+footer .icon.cclo, footer .icon.oise {
+  width: 295px;
+  height: 100px;
+  background-position-x: right;
+  background-size: 310px;
+}
+footer .icon.cclo {
+  background-position-y: center;
+}
+footer .icon.oise {
+  background-position-y: top;
 }
 
 /*# sourceMappingURL=neighbourhood.css.map */

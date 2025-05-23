@@ -7,5 +7,6 @@
  * @author Lynda El Kolli
  */
 
+ get_header(); ?>
 
  ?>

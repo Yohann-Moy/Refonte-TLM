@@ -150,7 +150,9 @@ function tlm_scripts() {
 	$template = str_replace( '.php', '', $template );
 
 	wp_enqueue_style( $template.'-styles', get_template_directory_uri() . '/assets/css/build/pages/'.$template.'.css', array(), _S_VERSION );
-		echo $template;
+
+	wp_enqueue_script( 'tlm-navigation', get_template_directory_uri() . '/assets/js/generic/navigation.js', array(), _S_VERSION, ['strategy' => 'defer']);
+
 
 }
 add_action( 'wp_enqueue_scripts', 'tlm_scripts' );
