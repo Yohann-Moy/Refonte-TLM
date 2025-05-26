@@ -152,6 +152,14 @@ function tlm_scripts() {
 	wp_enqueue_style( $template.'-styles', get_template_directory_uri() . '/assets/css/build/pages/'.$template.'.css', array(), _S_VERSION );
 		echo $template;
 
+
+	// Si la page chargée a pour slug (url) : contact
+	if(is_page('contact')):
+		// Chargement du fichier script.js qui se situe au sein du dossier templates du répertoire du thème (tlm).
+		// Ce fichier est chargé avec une stratégie de chargement diférée (defer).
+		wp_enqueue_script('tlm-contact', get_template_directory_uri() . '/templates/script.js', array(), _S_VERSION, ['strategy'  => 'defer']);
+		wp_enqueue_style( 'tlm-contact', get_template_directory_uri() . '/templates/style.css', array(), _S_VERSION );
+	endif;
 }
 add_action( 'wp_enqueue_scripts', 'tlm_scripts' );
 

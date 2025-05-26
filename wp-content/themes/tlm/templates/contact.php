@@ -7,20 +7,20 @@
  * @author Lynda El Kolli
  */
 
-get_header(); 
+get_header();
 ?>
-
+<script>
+  const traitementUrl = "<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>";
+</script>
 <main>
-    
-  
-    
+
 <h1><?php echo get_the_title(); ?></h1>
   <div class="content">
     <?php echo get_the_content(); ?> 
 
     <div id="resultat"></div>
 
-    <form id="contactForm" method="POST" action="<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>"
+    <form id="contactForm" method="POST" action="<?php echo esc_url( get_template_directory_uri() . '/templates/traitement-contact.php' ); ?>">
       <div>
         <input type="text" name="nom" id="nom" placeholder="Votre nom *" required>
         <span class="error" id="error-nom"></span>
@@ -59,12 +59,15 @@ get_header();
 
       <input type="submit" value="Envoyer">
     </form>
+
+    <div class="submit-results"></div>
+
   </div>
 </main>
      
 
 </main>
-<script src="<?php echo get_template_directory_uri(); ?>/templates/mon-script-contact.js"></script>
+
 <?php
 
 get_footer(); 
