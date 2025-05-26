@@ -154,7 +154,7 @@ function tlm_scripts() {
 
 
 	// Si la page chargée a pour slug (url) : contact
-	if(is_page('contact')):
+	if($template === "contact"):
 		// Chargement du fichier script.js qui se situe au sein du dossier templates du répertoire du thème (tlm).
 		// Ce fichier est chargé avec une stratégie de chargement diférée (defer).
 		wp_enqueue_script('tlm-contact', get_template_directory_uri() . '/templates/script.js', array(), _S_VERSION, ['strategy'  => 'defer']);
