@@ -1,0 +1,17 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+body{
+    font-family : inter ;
+    background-color:#FFFFFF;
+}
+
+.header {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    color: white;
+  }
