@@ -10,6 +10,8 @@
 // (que l'HTML est entièrement chargé)
  document.addEventListener("DOMContentLoaded", function () {
 
+  alert("WORKING ?");
+
   // Récupérez le formulaire de la page et le stockez au sein d'une constante.
     const form = document.getElementById("contactForm");
   
