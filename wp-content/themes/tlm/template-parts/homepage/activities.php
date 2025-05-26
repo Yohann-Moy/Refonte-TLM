@@ -17,15 +17,18 @@
     <div class="allActivities">
         <?php
         foreach($activities as $activity) :
-            //$imgId = get_post_thumbnail_id($activity->ID);
+            $imgId = $activity['bg_img']['ID'];
             ?>
             <pre>
             <?php var_dump($activity); ?>
             </pre>
-            
             <?php
-            //echo generate_img_tag($imgId, 'large');
-
+            echo generate_img_tag($imgId, 'large');
+            ?>
+            <p><?= $activity['name'];?></p>
+            <p><?= $activity['descri'];?></p>
+            <a href="<?= $activity['btn']['link']?>"> <?= $activity['btn']['content']?></a>
+            <?php
         endforeach;
         ?>
     </div>
