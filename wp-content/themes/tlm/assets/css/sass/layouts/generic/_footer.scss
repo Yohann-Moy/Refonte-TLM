@@ -1,50 +1,178 @@
 @use '../../utils/variables' as var;
 
-footer{
+footer {
+  background-color: var.$header-and-footer;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, .16);
 
-    background-color: var.$header-and-footer;
-    box-shadow: 0 0 4px 4px rgba(0,0,0,.16);
-    
-    .icon{
-        background-image: url("../../../img/spritemap.webp");
-        display: block;
-        background-repeat: no-repeat;
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    padding: 4rem 2rem 2rem;
+    box-sizing: border-box;
 
-        &.location, &.phone, &.mail{
-            width: 40px;
-            height: 40px;
-            background-position-y: bottom;
-            background-size: 155px;
-        }
+    p.title {
+      margin: 0 0 2rem;
+      text-align: left;
+      font-family: var.$secondaryTypo;
+      font-weight: 300;
+      font-size: 1.75rem;
+    }
+  }
 
-        &.location{
-            background-position-x: 1px;
-        }
+  ul {
+    font-family: var.$primaryTypo;
+    color: var.$primaryColour;
+    font-weight: 500;
+  }
 
-        &.phone{
-            background-position-x: -76px;
-        }
+  a {
+    color: var.$primaryColour;
+    font-weight: 600;
+    outline: none;
 
-        &.mail{
-            background-position-x: -37px;
-        }
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      text-underline-offset: 0.35rem;
+      text-decoration-thickness: 0.1rem;
 
-        &.cclo, &.oise{
-            width: 295px;
-            height: 100px;
-            background-position-x: right;
-            background-size: 310px;
-        }
+      img,
+      &.cclo,
+      &.oise {
+        transition: calc(var.$smallTransi / 4);
+        filter: brightness(0) saturate(100%) invert(35%) sepia(65%) saturate(489%) hue-rotate(101deg) brightness(93%) contrast(89%);
+      }
+    }
+  }
 
-        &.cclo{
-            background-position-y: center;
-        }
+  .top-on-each-other {
+    display: flex;
+    flex-direction: column;
 
-        &.oise{
-            background-position-y: top;
-        }
+    span:first-of-type,
+    li:first-of-type {
+      margin-bottom: 0.5rem;
+    }
+  }
 
+  .logo-container,
+  .hours-container,
+  .contact-container {
+    width: 100%;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
 
+  .logo-container {
+    max-width: 185px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .hours-container {
+    max-width: 425px;
+
+    li {
+      margin: 0.75rem 0;
+
+      &.multi-levels {
+        display: flex;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+      }
     }
 
+    span.top-on-each-other {
+      margin-left: 0.25rem;
+    }
+  }
+
+  .contact-container {
+    max-width: 350px;
+
+    li.element {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .partners-container {
+    max-width: 295px;
+  }
+
+  .icon {
+    display: block;
+    margin-right: 1rem;
+    background-image: url("../../../img/spritemap.webp");
+    background-repeat: no-repeat;
+
+    &.location,
+    &.phone,
+    &.mail {
+      width: 40px;
+      height: 40px;
+      background-size: 155px;
+      background-position-y: bottom;
+    }
+
+    &.location {
+      background-position-x: 1px;
+    }
+
+    &.phone {
+      background-position-x: -76px;
+    }
+
+    &.mail {
+      background-position-x: -37px;
+    }
+
+    &.cclo,
+    &.oise {
+      width: 295px;
+      height: 100px;
+      background-size: 310px;
+      background-position-x: right;
+      margin-right: 0;
+    }
+
+    &.cclo {
+      background-position-y: center;
+    }
+
+    &.oise {
+      background-position-y: top;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+
+    // Responsive à concevoir sur Figma.
+    // (puis à implémenter via SCSS.)
+
+    footer {
+        .top-container {
+            flex-direction: column;
+            align-items: center;
+            & > div{
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    }
 }

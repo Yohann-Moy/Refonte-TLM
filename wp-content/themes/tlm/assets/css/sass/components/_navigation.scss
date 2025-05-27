@@ -1,7 +1,7 @@
 @use '../utils/variables'as var;
 
 // 
-body.admin-bar nav {
+body.admin-bar header {
     top: 32px;
 }
 
@@ -281,7 +281,7 @@ header {
 }
 
 @media screen and (max-width: 782px) {
-    body.admin-bar nav {
+    body.admin-bar header {
         top: 46px;
     }
 }
