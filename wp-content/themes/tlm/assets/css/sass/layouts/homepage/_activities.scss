@@ -53,6 +53,10 @@
         &:first-of-type{
             width: 60%;
             z-index: 10;
+
+            .activity-name{
+                display: none;
+            }
         }
 
         &:nth-of-type(2){
@@ -71,6 +75,18 @@
 
         &:last-of-type{
             
+        }
+
+        .activity-name{
+            position: absolute;
+            bottom: 2.25rem;
+            color: white;
+            z-index: 30;
+            text-align: center;
+            display: block;
+            width: calc(100% - 200px);
+            font-family: var.$secondaryTypo;
+            font-weight: 600px;
         }
         
         img{

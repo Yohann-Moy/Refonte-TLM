@@ -622,6 +622,9 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   width: 60%;
   z-index: 10;
 }
+#activities .activity:first-of-type .activity-name {
+  display: none;
+}
 #activities .activity:nth-of-type(2) {
   z-index: 9;
 }
@@ -631,6 +634,17 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 #activities .activity:nth-of-type(2), #activities .activity:nth-of-type(3) {
   width: calc(16% + 200px);
   margin-left: -200px;
+}
+#activities .activity .activity-name {
+  position: absolute;
+  bottom: 2.25rem;
+  color: white;
+  z-index: 30;
+  text-align: center;
+  display: block;
+  width: calc(100% - 200px);
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 600px;
 }
 #activities .activity img {
   width: 100%;

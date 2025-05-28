@@ -35,6 +35,10 @@
                     $imgId = $activity['bg_img']['ID'];
                     echo generate_img_tag($imgId, 'large');
                 ?>
+
+                <span class="activity-name">
+                    <?= $activity['name'];?>
+                </span>
             </div>
             <?php
         endforeach;
