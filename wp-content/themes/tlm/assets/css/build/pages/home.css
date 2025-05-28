@@ -308,7 +308,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0 auto !important;
 }
 
 #servicesRapides {
