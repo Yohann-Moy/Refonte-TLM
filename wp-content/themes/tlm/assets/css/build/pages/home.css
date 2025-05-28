@@ -562,6 +562,50 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   display: block;
 }
 
+#activities {
+  width: 100%;
+  margin: 0 auto;
+}
+#activities .allActivities {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+#activities .activity {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#activities .activity img {
+  width: 1187px;
+  height: 800px;
+  object-fit: fill;
+  object-position: center;
+}
+#activities .activity .textContenainer {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  z-index: 1;
+}
+#activities .activity .textContenainer p, #activities .activity .textContenainer h2 {
+  color: #fff;
+}
+#activities .activity::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1%;
+  height: 100%;
+  background-color: #f5f5DC;
+  z-index: 0;
+  transform: skew(-20deg, 20deg);
+}
+
 footer {
   background-color: #fff9eb;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);

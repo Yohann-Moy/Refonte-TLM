@@ -13,21 +13,31 @@
 ?>
 
 <section id="activities">
-    <h2><?= $activitiesTitle?></h2>
     <div class="allActivities">
+
+
+        <?php //var_dump($activities); ?>
+
+
         <?php
-        foreach($activities as $activity) :
-            $imgId = $activity['bg_img']['ID'];
-            ?>
-            <pre>
-            <?php var_dump($activity); ?>
-            </pre>
-            <?php
-            echo generate_img_tag($imgId, 'large');
-            ?>
-            <p><?= $activity['name'];?></p>
-            <p><?= $activity['descri'];?></p>
-            <a href="<?= $activity['btn']['link']?>"> <?= $activity['btn']['content']?></a>
+        foreach($activities as $activity) :?>
+            
+
+            <div class="activity">
+
+                <?php
+                $imgId = $activity['bg_img']['ID'];
+                echo generate_img_tag($imgId, 'large');
+                ?>
+
+                <div class="textContenainer">
+                    <h2><?= $activitiesTitle?></h2>
+
+                    <p><?= $activity['name'];?></p>
+                    <p><?= $activity['descri'];?></p>
+                    <a href="<?= $activity['btn']['link']?>"> <?= $activity['btn']['content']?></a>
+                </div>
+            </div>
             <?php
         endforeach;
         ?>
