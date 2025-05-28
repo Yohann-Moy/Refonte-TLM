@@ -13,30 +13,28 @@
 ?>
 
 <section id="activities">
+
+    <h2><?= $activitiesTitle?></h2>
+    <div class="textContainer">
+        <p>
+            La nature vous attends au détour d’un sentier.<br>
+            Enfilez votre sac à dos et vos chaussures.
+        </p>
+        <a href="#" class="btn tertiary">Partir à l’aventure !</a>
+    </div>
+    
     <div class="allActivities">
-
-
-        <?php //var_dump($activities); ?>
-
 
         <?php
         foreach($activities as $activity) :?>
             
 
-            <div class="activity">
+            <div class="activity" data-name="<?= $activity['name'];?>" data-description="<?= $activity['descri'];?>" data-link="<?= $activity['btn']['link']?>" data-btn-content="<?= $activity['btn']['content']?>">
 
                 <?php
-                $imgId = $activity['bg_img']['ID'];
-                echo generate_img_tag($imgId, 'large');
+                    $imgId = $activity['bg_img']['ID'];
+                    echo generate_img_tag($imgId, 'large');
                 ?>
-
-                <div class="textContenainer">
-                    <h2><?= $activitiesTitle?></h2>
-
-                    <p><?= $activity['name'];?></p>
-                    <p><?= $activity['descri'];?></p>
-                    <a href="<?= $activity['btn']['link']?>"> <?= $activity['btn']['content']?></a>
-                </div>
             </div>
             <?php
         endforeach;

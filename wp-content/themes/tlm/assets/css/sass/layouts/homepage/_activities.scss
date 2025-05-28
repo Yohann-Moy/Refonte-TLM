@@ -1,54 +1,97 @@
 @use '../../utils/variables' as var;
+@use '../../components/buttons';
 
 
 #activities {
     width: 100%;
+    height: 600px;
     margin: 0 auto;
+    position: relative;
 
     .allActivities{
         display: flex;
         flex-direction: row;
-        width: auto;
+        height: inherit;
+    }
+
+    h2{
+        position: absolute;
+        color: white;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        width: calc(60% - 210px);
+        margin-top: 8rem;
+        padding-left: 4rem;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .textContainer{
+        position: absolute;
+        bottom: 0;
+        width: calc(60% - 235px);
+        z-index: 20;
+        padding-bottom: 8rem;
+        padding-left: 4rem;
+
+        p{
+            text-align: left;
+            color: white;
+        }
+
+        a{
+            margin-top: 4rem;
+        }
     }
 
     .activity{
         position: relative;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        
-        img{
-            width: 1187px;;
-            height: 800px;
-            object-fit:fill;
-            object-position: center;
-            
+        height: inherit;
+        clip-path: polygon(0 0, 100% 0%, calc(100% - 200px) 100%, 0% 100%);
+
+        &:first-of-type{
+            width: 60%;
+            z-index: 10;
         }
 
-        .textContenainer{
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            z-index: 1;
+        &:nth-of-type(2){
+            z-index: 9;
+        }
 
-            p, h2{
-                color: #fff;
-            }
+        &:nth-of-type(3){
+            z-index: 8;
+        }
+
+        &:nth-of-type(2),
+        &:nth-of-type(3){
+            width: calc(16% + 200px);
+            margin-left: -200px;
+        }
+
+        &:last-of-type{
+            
+        }
+        
+        img{
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            object-position: center;
         }
 
     }
+
     .activity::after{
         content: "";
         position: absolute;
         top: 0;
-        right: 0;
-        width: 1%;
+        right: 100px;
+        width: 10px;
         height: 100%;
         background-color: var.$background;
         z-index: 0;
-        transform: skew(-20deg, 20deg);
+        transform: skew(-18.45deg, 0deg);
     }
     
 }

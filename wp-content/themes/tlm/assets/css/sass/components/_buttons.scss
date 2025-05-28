@@ -1,1 +1,17 @@
 @use '../utils/variables' as var;
+
+.btn{
+
+    display: block;
+    border-radius : 10px;
+    padding: 0.75rem 2rem;
+    width: fit-content;
+    font-family: var.$secondaryTypo;
+    font-weight: 500;
+
+    &.tertiary{
+        color: var.$tertiaryColour;
+        background-color: white;
+    }
+
+}
