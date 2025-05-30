@@ -45,10 +45,13 @@ $posts = get_posts($args);
                             <?php
                                 // TODO : Faire en sorte de vérifier que l'article ait un contenu
                                 // Si il n'en a pas, ne pas l'afficher. 
-                                echo get_the_excerpt($post->ID);
+                                $excerpt = get_the_excerpt($post->ID);
+                                if (!empty($excerpt)) :
+                                    echo $excerpt;
+                                endif;
                             ?>
                         </p>
-                        <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article" title="Redirection vers l'article" class="readMore">Lire la suite</a>
+                        <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article" title="Redirection vers l'article" class="btn">Lire la suite</a>
                     </div>
                 </article>
             <?php endif; ?>
@@ -61,25 +64,28 @@ $posts = get_posts($args);
                 <?php $postNumber++; ?>
                 <?php if ($postNumber !== 1) : ?>
                     <article class="sideArticle">
-                    <?php 
-                        // TODO : Gérer le fait que le contenu des articles soit sous forme de lien
-                        // Pour récupérer l'URL de chaque article : 
-                        // echo get_permalink($post->ID);
-                    ?>
+                        <a href="<?= get_permalink($post->ID);?>" class="sideArticleLink" title="Redirection vers l'article" aria-label="Redirection vers l'article">
+                        <?php 
+                            // TODO : Gérer le fait que le contenu des articles soit sous forme de lien
+                            // Pour récupérer l'URL de chaque article : 
+                            // echo get_permalink($post->ID);
+                        ?>
 
-                    <?php
-                        $imgId = get_post_thumbnail_id($post->ID);
-                        echo generate_img_tag($imgId, 'medium');
-                    ?>
+                        <?php
+                            $imgId = get_post_thumbnail_id($post->ID);
+                            echo generate_img_tag($imgId, 'medium');
+                        ?>
 
-                        <div class="textContainer">
-                            <p class="title"><?= verifyTextField($post->post_title); ?></p>
-                            <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
-                        </div>
+                            <div class="textContainer">
+                                <p class="title"><?= verifyTextField($post->post_title); ?></p>
+                                <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
+                            </div>
+                        </a>
                     </article>
+                    
                 <?php endif; ?>
             <?php endforeach; ?>
-            <a href="<?= esc_url("/actualites"); ?>"  title="Redirection vers tous les articles" aria-label="Redirection vers tous les articles">Encore + d'actus</a>
+            <a href="<?= esc_url("/actualites"); ?>" class="btn secondary" title="Redirection vers tous les articles" aria-label="Redirection vers tous les articles">Encore + d'actus</a>
         </div>
     <?php else : ?>
         <p>Aucun article trouvé.</p>

@@ -26,6 +26,8 @@ $events = get_posts($args);
 
 
 <section id="latestEvents">
+    <div class="eventsBackground"></div>
+
     <h2><?= $eventsTitle ?></h2>
 
     <div class="eventsContainer">

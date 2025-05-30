@@ -1,4 +1,6 @@
 @use '../../utils/variables' as var;
+@use '../../components/buttons';
+
 
 #latestNews {
     width: 100%;
@@ -39,15 +41,7 @@
                 text-align: left;
             }
 
-            a{
-                text-decoration: none;
-                padding: 12px 32px;
-                background-color: var.$tertiaryColour;
-                font-family: 'MPlus Rounded 1c', sans-serif;
-                color: #f5F5DC;
-                border-radius: 10px;
-                margin-top: 32px;
-            }
+            
         }
         .sideSection {
             width: 40%;
@@ -55,60 +49,64 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem; 
+            align-items: center;
 
-            a{
-                text-decoration: none;
-                padding: 12px 32px;
-                background-color: #f5F5DC ;
-                font-family: 'MPlus Rounded 1c', sans-serif;
-                color: var.$tertiaryColour;
-                border-radius: 10px;
-                border: 2px solid var.$tertiaryColour;
-                margin: auto;
-                margin-top: 40px;   
-            }
 
             .sideArticle {
-                display: flex;
-                flex-direction: column;
-                gap: 0.5rem; 
-                width: 100%;
-                min-width: 0; 
+                position: relative;
+                width: 100%; 
 
-                img {
-                    max-width: 28.125rem; 
-                    height: 11.6563rem; 
-                    object-fit: cover;
-                    object-position: center;
-                    border-radius: .625rem;
-                }
-                .textContainer {
-                    display: block;
-                    width: 25.2rem;
-                    height: 11.6563rem;
-                    position: absolute;
-                    padding-left: 1.5rem;
-                    padding-right: 1.5rem;
+                .sideArticleLink{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem; 
+                    width: 100%;
+                    min-width: 0;
 
-                    p{
-                        color: white;
-                        font-size: 1.5rem;
-                        font-weight: 900;
+                    transition: all var.$smallTransi ease-in-out;
 
-
-                        &.title{
-                            text-transform: uppercase;
-                            margin-top: 3.8125rem;
-                        }
-                        &.date{
-                            font-size: 1rem;
-                            margin-top: 1.5625rem;
+                    &:hover, &:focus{
+                        img{
+                            filter: brightness(0.75) saturate(1.2);
                         }
                     }
-                    
+                    &:focus{
+                        outline: none;
+                    }
+
+                    img {
+                        max-width: 28.125rem; 
+                        height: 11.6563rem; 
+                        object-fit: cover;
+                        object-position: center;
+                        border-radius: .625rem;
+                    }
+                    .textContainer {
+                        display: block;
+                        width: 25.2rem;
+                        height: 11.6563rem;
+                        position: absolute;
+                        padding-left: 1.5rem;
+                        padding-right: 1.5rem;
+
+                        p{
+                            color: white;
+                            font-size: 1.5rem;
+                            font-weight: 900;
+
+
+                            &.title{
+                                text-transform: uppercase;
+                                margin-top: 3.8125rem;
+                            }
+                            &.date{
+                                font-size: 1rem;
+                                margin-top: 1.5625rem;
+                            }
+                        }
+                    }
                 }
             }
-            
         }
     }
 }
