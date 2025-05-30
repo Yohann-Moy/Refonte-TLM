@@ -642,12 +642,71 @@ footer .icon.oise {
 
 @media screen and (max-width: 1199px) {
   footer .top-container {
-    flex-direction: column;
-    align-items: center;
+    position: relative;
   }
-  footer .top-container > div {
-    width: 100%;
-    max-width: 100%;
+  footer .top-container .logo-container {
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    max-width: 125px;
+  }
+  footer .top-container .partners-container {
+    max-width: 100px;
+    margin-top: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  footer .top-container .partners-container p.title {
+    display: none;
+  }
+  footer .top-container .icon.cclo {
+    width: 100px;
+    background-position-x: -30px;
+    scale: 0.75;
+  }
+  footer .top-container .icon.oise {
+    background-position-x: -49px;
+    width: 70px;
+    height: 70px;
+    background-position-y: -18px;
+  }
+}
+@media screen and (max-width: 899px) {
+  footer .top-container {
+    padding-bottom: 12rem;
+  }
+  footer .top-container .logo-container {
+    max-width: 150px;
+    bottom: 1rem;
+    top: auto;
+    left: 1rem;
+  }
+  footer .top-container .contact-container {
+    padding-right: 0;
+    max-width: 285px;
+  }
+  footer .top-container .partners-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 4rem;
+    bottom: 0;
+  }
+  footer .top-container .icon.cclo {
+    scale: 1;
+    position: absolute;
+    bottom: 2rem;
+    right: 8rem;
+    height: 79px;
+  }
+  footer .top-container .icon.oise {
+    position: absolute;
+    bottom: 2.25rem;
+    right: 1rem;
+    height: 60px;
+    background-position-y: -23px;
+    scale: 1.15;
   }
 }
 body.home h1 {
