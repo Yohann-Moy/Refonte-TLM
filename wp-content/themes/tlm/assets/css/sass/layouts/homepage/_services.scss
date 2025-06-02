@@ -1,7 +1,8 @@
 @use '../../utils/variables' as var;
 
 #servicesRapides{
-    width: 835px;
+    max-width: 835px;
+    width: 100%;
     box-sizing: border-box;
     position: absolute;
     z-index: 1;
@@ -12,6 +13,7 @@
     border-top-right-radius: var.$borderRadius; ;
     padding: 0rem 2.5rem 0rem 2.5rem;
     display: flex;
+    justify-content: space-between;
     background-color: #F5F5DC;
 
     a{
@@ -20,14 +22,82 @@
         padding-right: 1.5rem;
         padding-top: 2rem;
         padding-bottom: 1rem;
+        box-sizing: border-box;
+        outline: none;
+        position: relative;
+
+        svg{
+            width: 100%;
+            transition: var.$smallTransi;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12.5%;
+            width: 0;
+            margin: 0 auto;
+            height: 4px;
+            border-radius: 3px;
+            background-color: var.$tertiaryColour;
+            // opacity: 0;
+            transition: var.$smallTransi;
+        }
 
 
-        &:hover{
+        &:hover, &:focus{
             
             svg{
-                width: 100px;
+                scale: 0.85;
+            }
+
+            &::after{
+                width: 75%;
+                opacity: 1;
             }
         }
     }
     
+
+    // Gestion des arrondis inversés (notched corners)
+
+    &::before{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: -31px;
+        width: 2rem;
+        height: 2rem;
+        border-bottom-left-radius: 50%;
+        box-shadow: 0 20px 0 0 var.$background;
+        transform: rotateY(180deg);
+    }
+
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        right: -31px;
+        width: 2rem;
+        height: 2rem;
+        border-bottom-left-radius: 50%;
+        box-shadow: 0 20px 0 0 var.$background;
+        transform: rotateY(0deg);
+    }
+
+}
+
+@media screen and (max-width: 839px) {
+
+    // A finaliser car les icones deviennent très petites
+
+    #servicesRapides{
+        padding: 0rem 1rem 0rem 1rem;
+        border-radius: 0;
+
+        &::before, &::after{
+            display: none;
+        }
+    }
 }

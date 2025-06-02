@@ -25,7 +25,7 @@ $stats = $latestStats['all_stats']; ?>
                         endif;
                     ?>
                     <p class="<?= $classe; ?>">
-                        <span class="value"><?= $stat['main_marker']['value']; ?></span>
+                        <span class="value" data-value="<?= $stat['main_marker']['value']; ?>"><?= $stat['main_marker']['value']; ?></span>
                         <?php 
                             if (!empty($stat['main_marker']['unit']) && ($stat['main_marker']['unit']) !== "/ (rien)"): ?>
                                 <span class="unit"><?= $stat['main_marker']['unit']; ?></span>

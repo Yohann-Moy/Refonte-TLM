@@ -7,20 +7,28 @@
     max-width: var.$mxw;
     margin: auto;
     margin-top: 15.625rem;
+    padding-left: 2rem; // Afin d'éviter que les contenus collent les bords en responsive
+    padding-right: 2rem; // Afin d'éviter que les contenus collent les bords en responsive
+    box-sizing: border-box; // Afin d'éviter que les contenus collent les bords en responsive
 
     .newsContainer {
         display: flex;
         flex-direction: row;
-        gap: 3rem;
         width: 100%;
 
         .mainArticle {
-            width: 60%; 
-            min-width: 0; 
+            width: 100%;
+            max-width: 1000px;
+            padding-right: 3rem;
+
+            .textContainer{
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
 
             img {
                 width: 100%;
-                height: 25rem; 
+                height: 525px; 
                 object-fit: cover;
                 object-position: center;
                 border-radius: .625rem;
@@ -32,8 +40,12 @@
                 padding-right: 3rem;
                 flex-direction: column;
 
-                &.date{
+                .date{
                     margin-top: 1rem;
+
+                    & + .btn{
+                        margin-top: 1rem;
+                    }
                 }
             }
 
@@ -44,8 +56,8 @@
             
         }
         .sideSection {
-            width: 40%;
-            max-width: 28.125rem; 
+            width: 100%;
+            max-width: 450px;
             display: flex;
             flex-direction: column;
             gap: 1.5rem; 
@@ -55,6 +67,8 @@
             .sideArticle {
                 position: relative;
                 width: 100%; 
+                border-radius: .625rem;
+                height: 175px;
 
                 .sideArticleLink{
                     display: flex;
@@ -62,12 +76,29 @@
                     gap: 0.5rem; 
                     width: 100%;
                     min-width: 0;
-
+                    position: relative;
                     transition: all var.$smallTransi ease-in-out;
+                    border-radius: inherit;
+                    height: inherit;
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        left: 0;
+                        background-color: rgba(53, 53, 53, 0.65);
+                        filter: contrast(0.5);
+                        border-radius: .625rem;
+                        transition: all calc(var.$smallTransi / 2) ease-in-out;
+                    }
 
                     &:hover, &:focus{
-                        img{
-                            filter: brightness(0.75) saturate(1.2);
+                        &::before{
+                            background-color: var.$tertiaryColour;
+                            filter: contrast(0.5);
+                            opacity: 0.75;
                         }
                     }
                     &:focus{
@@ -75,33 +106,50 @@
                     }
 
                     img {
-                        max-width: 28.125rem; 
-                        height: 11.6563rem; 
+                        width: 100%;
+                        max-width: 100%;
+                        height: inherit;
                         object-fit: cover;
                         object-position: center;
-                        border-radius: .625rem;
+                        border-radius: inherit;
+                        height: inherit;
+                        
                     }
                     .textContainer {
                         display: block;
-                        width: 25.2rem;
-                        height: 11.6563rem;
                         position: absolute;
                         padding-left: 1.5rem;
                         padding-right: 1.5rem;
+                        width: 100%;
+                        box-sizing: border-box;
+                        top: 0;
+                        bottom: 0;
+
+                        .title{
+                            text-transform: uppercase;
+                            position: absolute;
+                            top: 50%;
+                            left: 0.5rem;
+                            right: 0.5rem;
+                            transform: translateY(-50%);
+                            margin-top: 0;
+                            font-family: var.$secondaryTypo;
+                            font-weight: 500;
+                            font-size: 1.4rem;
+                            color: white;
+                        }
 
                         p{
                             color: white;
                             font-size: 1.5rem;
                             font-weight: 900;
 
-
-                            &.title{
-                                text-transform: uppercase;
-                                margin-top: 3.8125rem;
-                            }
                             &.date{
                                 font-size: 1rem;
-                                margin-top: 1.5625rem;
+                                position: absolute;
+                                bottom: 1rem;
+                                left: 0;
+                                right: 0;
                             }
                         }
                     }
@@ -109,4 +157,40 @@
             }
         }
     }
+}
+
+@media screen and (max-width: 999px) {
+    #latestNews {
+        .newsContainer {
+            flex-direction: column;
+
+            .mainArticle{
+                margin-bottom: 8rem;
+            }
+
+            .sideSection{
+                max-width: 100%;
+
+                .btn{
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 999px) {
+    #latestNews {
+
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+        .newsContainer {
+            .mainArticle{
+                padding-right: 0;
+            }
+        }
+    }
+    
 }

@@ -313,7 +313,8 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 }
 
 #servicesRapides {
-  width: 835px;
+  max-width: 835px;
+  width: 100%;
   box-sizing: border-box;
   position: absolute;
   z-index: 1;
@@ -324,6 +325,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   border-top-right-radius: 0.625rem;
   padding: 0rem 2.5rem 0rem 2.5rem;
   display: flex;
+  justify-content: space-between;
   background-color: #F5F5DC;
 }
 #servicesRapides a {
@@ -332,11 +334,65 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   padding-right: 1.5rem;
   padding-top: 2rem;
   padding-bottom: 1rem;
+  box-sizing: border-box;
+  outline: none;
+  position: relative;
 }
-#servicesRapides a:hover svg {
-  width: 100px;
+#servicesRapides a svg {
+  width: 100%;
+  transition: 0.3s;
+}
+#servicesRapides a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 12.5%;
+  width: 0;
+  margin: 0 auto;
+  height: 4px;
+  border-radius: 3px;
+  background-color: #1C7950;
+  transition: 0.3s;
+}
+#servicesRapides a:hover svg, #servicesRapides a:focus svg {
+  scale: 0.85;
+}
+#servicesRapides a:hover::after, #servicesRapides a:focus::after {
+  width: 75%;
+  opacity: 1;
+}
+#servicesRapides::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: -31px;
+  width: 2rem;
+  height: 2rem;
+  border-bottom-left-radius: 50%;
+  box-shadow: 0 20px 0 0 #f5f5DC;
+  transform: rotateY(180deg);
+}
+#servicesRapides::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: -31px;
+  width: 2rem;
+  height: 2rem;
+  border-bottom-left-radius: 50%;
+  box-shadow: 0 20px 0 0 #f5f5DC;
+  transform: rotateY(0deg);
 }
 
+@media screen and (max-width: 839px) {
+  #servicesRapides {
+    padding: 0rem 1rem 0rem 1rem;
+    border-radius: 0;
+  }
+  #servicesRapides::before, #servicesRapides::after {
+    display: none;
+  }
+}
 .btn {
   display: block;
   border-radius: 10px;
@@ -347,12 +403,13 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   color: white;
   text-decoration: none;
   background-color: #1C7950;
+  box-sizing: border-box;
   transition: all 0.3s ease-in-out;
 }
 .btn:hover, .btn:focus {
   color: #1C7950;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  box-shadow: 0 0 0 2px inset #1C7950;
 }
 .btn.secondary {
   color: #1C7950;
@@ -374,20 +431,27 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   max-width: 1400px;
   margin: auto;
   margin-top: 15.625rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
 }
 #latestNews .newsContainer {
   display: flex;
   flex-direction: row;
-  gap: 3rem;
   width: 100%;
 }
 #latestNews .newsContainer .mainArticle {
-  width: 60%;
-  min-width: 0;
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 3rem;
+}
+#latestNews .newsContainer .mainArticle .textContainer {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 #latestNews .newsContainer .mainArticle img {
   width: 100%;
-  height: 25rem;
+  height: 525px;
   object-fit: cover;
   object-position: center;
   border-radius: 0.625rem;
@@ -399,15 +463,18 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   padding-right: 3rem;
   flex-direction: column;
 }
-#latestNews .newsContainer .mainArticle .textContainer.date {
+#latestNews .newsContainer .mainArticle .textContainer .date {
+  margin-top: 1rem;
+}
+#latestNews .newsContainer .mainArticle .textContainer .date + .btn {
   margin-top: 1rem;
 }
 #latestNews .newsContainer .mainArticle h3 {
   text-align: left;
 }
 #latestNews .newsContainer .sideSection {
-  width: 40%;
-  max-width: 28.125rem;
+  width: 100%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -416,6 +483,8 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 #latestNews .newsContainer .sideSection .sideArticle {
   position: relative;
   width: 100%;
+  border-radius: 0.625rem;
+  height: 175px;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink {
   display: flex;
@@ -423,49 +492,106 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   gap: 0.5rem;
   width: 100%;
   min-width: 0;
+  position: relative;
   transition: all 0.3s ease-in-out;
+  border-radius: inherit;
+  height: inherit;
 }
-#latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:hover img, #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:focus img {
-  filter: brightness(0.75) saturate(1.2);
+#latestNews .newsContainer .sideSection .sideArticle .sideArticleLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(53, 53, 53, 0.65);
+  filter: contrast(0.5);
+  border-radius: 0.625rem;
+  transition: all 0.15s ease-in-out;
+}
+#latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:hover::before, #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:focus::before {
+  background-color: #1C7950;
+  filter: contrast(0.5);
+  opacity: 0.75;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:focus {
   outline: none;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink img {
-  max-width: 28.125rem;
-  height: 11.6563rem;
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
   object-fit: cover;
   object-position: center;
-  border-radius: 0.625rem;
+  border-radius: inherit;
+  height: inherit;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer {
   display: block;
-  width: 25.2rem;
-  height: 11.6563rem;
   position: absolute;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  top: 0;
+  bottom: 0;
+}
+#latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer .title {
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 0.5rem;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  margin-top: 0;
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: white;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer p {
   color: white;
   font-size: 1.5rem;
   font-weight: 900;
 }
-#latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer p.title {
-  text-transform: uppercase;
-  margin-top: 3.8125rem;
-}
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer p.date {
   font-size: 1rem;
-  margin-top: 1.5625rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
 }
 
+@media screen and (max-width: 999px) {
+  #latestNews .newsContainer {
+    flex-direction: column;
+  }
+  #latestNews .newsContainer .mainArticle {
+    margin-bottom: 8rem;
+  }
+  #latestNews .newsContainer .sideSection {
+    max-width: 100%;
+  }
+  #latestNews .newsContainer .sideSection .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 999px) {
+  #latestNews {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  #latestNews .newsContainer .mainArticle {
+    padding-right: 0;
+  }
+}
 #latestEvents {
   width: 100%;
   margin: auto;
   margin-top: 15.625rem;
-  padding-top: 10.9375rem;
-  padding-bottom: 10.9375rem;
+  padding: 11rem 2rem;
+  box-sizing: border-box;
   position: relative;
 }
 #latestEvents .eventsBackground {
@@ -478,7 +604,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   background-size: cover;
   background-position: center;
   z-index: -1;
-  filter: brightness(100%); /* Ajuste la luminosité sans changer la teinte */
+  filter: contrast(2);
 }
 #latestEvents .eventsBackground::before {
   content: "";
@@ -487,8 +613,9 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(28, 179, 28, 0.5); /* Vert moyen avec 50% d'opacité */
+  background-color: #638E69; /* Vert moyen avec 50% d'opacité */
   z-index: 1;
+  opacity: 0.9;
 }
 #latestEvents h2 {
   color: white;
@@ -496,24 +623,31 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   font-size: 3rem;
   margin-bottom: 6rem;
 }
+#latestEvents sup {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2rem;
+  margin-right: 1rem;
+  text-transform: none;
+}
 #latestEvents .eventsContainer {
-  width: 95%;
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
   gap: 2rem;
   justify-content: center;
 }
 #latestEvents .eventsContainer .eventArticle {
   width: 25%;
-  max-width: 27.125rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 #latestEvents .eventsContainer .eventArticle img {
-  max-width: 26.875rem;
-  max-height: 15.625rem;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
   width: 100%;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer {
@@ -524,17 +658,22 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   font-size: 2.25rem;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer .dates {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 2rem;
+  position: relative;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer .dates p {
+  margin-top: 0;
   font-weight: 900;
   text-transform: capitalize;
+  text-align: left;
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  display: flex;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer .dates svg {
-  margin-top: 1rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 #latestEvents .eventsContainer .eventArticle .textContainer .date {
   font-size: 2.5rem;
@@ -555,30 +694,56 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   color: white;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer .description {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: white;
   text-align: left;
+  font-family: "MPlus Rounded 1c", sans-serif;
+  font-weight: 500;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer h3 {
   text-align: left;
 }
+#latestEvents .eventsContainer .eventArticle .textContainer .icon {
+  background-image: url("../../../img/spritemap.webp");
+  display: block;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-position-y: bottom;
+  background-size: 155px;
+  background-position-x: 1px;
+  filter: invert(1) contrast(2);
+  margin-left: -10px;
+}
 
+@media screen and (max-width: 999px) {
+  #latestEvents {
+    padding: 11rem 1rem;
+  }
+}
 #statistics {
   width: 100%;
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  box-sizing: border-box;
 }
 #statistics .statsContainer {
   display: flex;
   justify-content: center;
   gap: 3rem;
+  width: 100%;
 }
 #statistics .statsContainer .item {
   margin: 0;
   text-align: center;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #statistics .statsContainer .roundedBox {
   font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
@@ -591,8 +756,6 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
   width: 250px;
   height: 250px;
   box-sizing: border-box;
@@ -627,6 +790,66 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   display: block;
 }
 
+@media screen and (max-width: 1249px) {
+  #statistics .statsContainer .roundedBox {
+    width: 230px;
+    height: 230px;
+  }
+  #statistics .statsContainer p .value {
+    font-size: 4rem;
+  }
+  #statistics .statsContainer p.generic .unit {
+    bottom: 35px;
+  }
+  #statistics .statsContainer p.pourcentage .unit {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 1199px) {
+  #statistics .statsContainer .roundedBox {
+    width: 200px;
+    height: 200px;
+  }
+  #statistics .statsContainer h3 {
+    font-size: 2rem;
+  }
+  #statistics .statsContainer p .value {
+    font-size: 3.5rem;
+  }
+  #statistics .statsContainer p.generic .unit {
+    bottom: 30px;
+    font-size: 1.25rem;
+  }
+  #statistics .statsContainer p.pourcentage .unit {
+    font-size: 3.5rem;
+  }
+}
+@media screen and (max-width: 1099px) {
+  #statistics .statsContainer {
+    flex-wrap: wrap;
+  }
+  #statistics .statsContainer .item {
+    flex: calc(50% - 1.5rem);
+  }
+  #statistics .statsContainer .roundedBox {
+    width: 230px;
+    height: 230px;
+  }
+}
+@media screen and (max-width: 999px) {
+  #statistics {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #statistics .statsContainer {
+    flex-wrap: wrap;
+  }
+  #statistics .statsContainer .item {
+    flex: 100%;
+  }
+}
 #activities {
   width: 100%;
   height: 600px;

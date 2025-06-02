@@ -4,8 +4,8 @@
     width: 100%;
     margin: auto;
     margin-top: 15.625rem;
-    padding-top: 10.9375rem;
-    padding-bottom: 10.9375rem;
+    padding: 11rem 2rem;
+    box-sizing: border-box;
     position: relative;
 
     .eventsBackground {
@@ -18,7 +18,7 @@
         background-size: cover;
         background-position: center;
         z-index: -1;
-        filter: brightness(100%); /* Ajuste la luminosité sans changer la teinte */
+        filter: contrast(2);
 
         &::before {
             content: '';
@@ -27,8 +27,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(28, 179, 28, 0.5); /* Vert moyen avec 50% d'opacité */
+            background-color: #638E69; /* Vert moyen avec 50% d'opacité */
             z-index: 1;
+            opacity: 0.9;
         }
     }
 
@@ -39,24 +40,32 @@
         margin-bottom: 6rem;
     }
 
+    sup{
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 2rem;
+        margin-right: 1rem;
+        text-transform: none;
+    }
+
     .eventsContainer {
-        width: 95%;
+        width: 100%;
+        max-width: 1920px;
+        margin: auto;
         display: flex;
-        padding-left: 20px;
-        padding-right: 20px;
         gap: 2rem;
         justify-content: center;
 
         .eventArticle {
             width: 25%;
-            max-width: 27.125rem;
             display: flex;
             flex-direction: column;
             align-items: center;
 
             img {
-                max-width: 26.875rem;
-                max-height: 15.625rem;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 10px;
                 width: 100%;
             }
 
@@ -69,18 +78,24 @@
                 }
 
                 .dates {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
+
+                    margin-top: 2rem;
+                    position: relative;
 
                     p {
+                        margin-top: 0;
                         font-weight: 900;
                         text-transform: capitalize;
+                        text-align: left;
+                        font-family: var.$secondaryTypo;
+                        display: flex;
                     }
 
                     svg{
-                        margin-top: 1rem;
+                        position: absolute;
+                        top: 50%;
+                        right: 0;
+                        transform: translateY(-50%);
                     }
                 }
 
@@ -106,15 +121,40 @@
                 }
 
                 .description {
-                    font-size: 1.5rem;
+                    font-size: 1.25rem;
                     color: white;
                     text-align: left;
+                    font-family: var.$primaryTypo;
+                    font-weight: 500;
                 }
 
                 h3 {
                     text-align: left;
                 }
+
+                .icon{
+                    background-image: url("../../../img/spritemap.webp");
+                    display: block;
+                    background-repeat: no-repeat;
+                    width: 40px;
+                    height: 40px;
+                    background-position-y: bottom;
+                    background-size: 155px;
+                    background-position-x: 1px;
+                    filter: invert(1) contrast(2);
+                    margin-left: -10px;
+                }
             }
         }
+    }
+}
+
+@media screen and (max-width: 1499px) {
+    // Réfléchir sur le figma à l'interface du site à partir de ce point. (images qui deviennent carrées)
+}
+
+@media screen and (max-width: 999px) {
+    #latestEvents {
+        padding: 11rem 1rem;
     }
 }

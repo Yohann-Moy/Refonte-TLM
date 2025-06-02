@@ -6,18 +6,25 @@
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    padding-left: 2rem; // Afin d'éviter que les contenus collent les bords en responsive
+    padding-right: 2rem; // Afin d'éviter que les contenus collent les bords en responsive
+    box-sizing: border-box; // Afin d'éviter que les contenus collent les bords en responsive
 
 
     .statsContainer {
         display: flex;
         justify-content: center;
         gap: 3rem;
+        width: 100%;
         
 
         .item {
             margin: 0;
-            text-align: center;  
-            width: 100%;            
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .roundedBox {
@@ -31,12 +38,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            margin-left: 2rem;
-            margin-right: 2rem;
             width: 250px;
             height: 250px;
             box-sizing: border-box;
-            
         }
 
         p{
@@ -76,7 +80,92 @@
             margin-top: 2rem;
             display: block;
         }
+    }
+}
 
-        
+@media screen and (max-width: 1249px) {
+    #statistics {
+        .statsContainer {
+            .roundedBox{
+                width: 230px;
+                height: 230px;
+            }
+
+            p .value{
+                font-size: 4rem;
+            }
+
+            p.generic .unit{
+                bottom: 35px;
+            }
+
+            p.pourcentage .unit{
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    #statistics {
+        .statsContainer {
+            .roundedBox{
+                width: 200px;
+                height: 200px;
+            }
+
+            h3{
+                font-size: 2rem;
+            }
+
+            p .value{
+                font-size: 3.5rem;
+            }
+
+            p.generic .unit{
+                bottom: 30px;
+                font-size: 1.25rem;
+            }
+
+            p.pourcentage .unit{
+                font-size: 3.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    #statistics {
+        .statsContainer {
+            flex-wrap: wrap;
+
+            .item {
+                flex: calc(50% - 1.5rem);
+            }
+
+            .roundedBox{
+                width: 230px;
+                height: 230px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 999px) {
+    #statistics {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #statistics {
+        .statsContainer {
+            flex-wrap: wrap;
+
+            .item {
+                flex: calc(100%);
+            }
+        }
     }
 }

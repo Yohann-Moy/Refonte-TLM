@@ -11,13 +11,13 @@
     color: white;
     text-decoration: none;
     background-color: var.$tertiaryColour;
-
+    box-sizing: border-box;
     transition: all var.$smallTransi ease-in-out;
 
     &:hover, &:focus{
         color: var.$tertiaryColour;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: transparent;
+        box-shadow: 0 0 0 2px inset var.$tertiaryColour;
     }
 
     &.secondary{

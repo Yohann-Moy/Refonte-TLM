@@ -41,16 +41,18 @@ $posts = get_posts($args);
                     <div class="textContainer">
                         <h3><?= verifyTextField($post->post_title, 'Titre'); ?></h3>
                         <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
-                        <p class="description">
+                        
                             <?php
                                 // TODO : Faire en sorte de vérifier que l'article ait un contenu
                                 // Si il n'en a pas, ne pas l'afficher. 
                                 $excerpt = get_the_excerpt($post->ID);
                                 if (!empty($excerpt)) :
-                                    echo $excerpt;
+                            ?>
+                                <p class="description"><?= $excerpt; ?></p>
+                            <?php 
                                 endif;
                             ?>
-                        </p>
+                        
                         <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" title="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" class="btn">Lire la suite</a>
                     </div>
                 </article>
@@ -63,7 +65,7 @@ $posts = get_posts($args);
             <?php foreach ($posts as $post) : ?>
                 <?php $postNumber++; ?>
                 <?php if ($postNumber !== 1) : ?>
-                    <article class="sideArticle">
+                    <div class="sideArticle">
                     <a href="<?= get_permalink($post->ID);?>" class="sideArticleLink" title="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" aria-label="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>">
                     <?php 
                             // TODO : Gérer le fait que le contenu des articles soit sous forme de lien
@@ -76,12 +78,12 @@ $posts = get_posts($args);
                             echo generate_img_tag($imgId, 'medium');
                         ?>
 
-                            <div class="textContainer">
-                                <p class="title"><?= verifyTextField($post->post_title); ?></p>
+                            <article class="textContainer">
+                                <h3 class="title"><?= verifyTextField($post->post_title); ?></h3>
                                 <p class="date">Publié le <?= (new DateTime($post->post_date))->format("d/m/Y"); ?></p>
-                            </div>
+                            </article>
                         </a>
-                    </article>
+                    </div><!-- .sideArticle -->
                     
                 <?php endif; ?>
             <?php endforeach; ?>
