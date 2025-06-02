@@ -51,7 +51,7 @@ $posts = get_posts($args);
                                 endif;
                             ?>
                         </p>
-                        <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article" title="Redirection vers l'article" class="btn">Lire la suite</a>
+                        <a href="<?= get_permalink($post->ID); ?>" aria-label="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" title="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" class="btn">Lire la suite</a>
                     </div>
                 </article>
             <?php endif; ?>
@@ -64,8 +64,8 @@ $posts = get_posts($args);
                 <?php $postNumber++; ?>
                 <?php if ($postNumber !== 1) : ?>
                     <article class="sideArticle">
-                        <a href="<?= get_permalink($post->ID);?>" class="sideArticleLink" title="Redirection vers l'article" aria-label="Redirection vers l'article">
-                        <?php 
+                    <a href="<?= get_permalink($post->ID);?>" class="sideArticleLink" title="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>" aria-label="Redirection vers l'article intitulé <?= verifyTextField($post->post_title); ?>">
+                    <?php 
                             // TODO : Gérer le fait que le contenu des articles soit sous forme de lien
                             // Pour récupérer l'URL de chaque article : 
                             // echo get_permalink($post->ID);
