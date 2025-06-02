@@ -1,7 +1,7 @@
 @use '../../utils/variables' as var;
 
 footer {
-  background-color: var.$header-and-footer;
+  background-color: red;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, .16);
 
   .top-container {

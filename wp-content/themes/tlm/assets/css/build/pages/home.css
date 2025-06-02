@@ -536,7 +536,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 }
 
 footer {
-  background-color: #fff9eb;
+  background-color: red;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);
 }
 footer .top-container {
