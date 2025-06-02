@@ -1,17 +1,103 @@
-*{
-    margin : 0;
-    padding : 0;
+
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-    font-family : inter ;
-    background-color:red;
+:root {
+  --vert-fonce: #1C7950;
+  --vert-moyen: #3B7A3E;
+  --beige-fond: #FEFEE8;
+  --beige-clair: #F5F5DC;
+  --marron-fonce: #422D00;
+  --marron-tres-fonce: #231800;
+  --noir: #000000;
+  --blanc: #FFFFFF;
+  --font: 'M PLUS Rounded 1c', sans-serif;
 }
 
-.header {
-    position: relative;
-    height: 300px;
+body {
+  font-family: var(--font);
+  background-color: var(--beige-clair);
+  color: var(--marron-fonce);
+  line-height:auto; 
+}
+.title-page {
+  max-width: 1400px;
+  height: 287px;
+  margin: 0 auto;
+  
+}
+.title-page h1 {
+  width: 568px;
+  font-size: 64px;
+  font-weight: 700;
+  color: #422D00; 
+  text-align: center;
+  padding: 96px 96px;
+  margin: auto;
+}
+.content {
+  max-width: 1400px;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--marron-tres-fonce);
+  margin: 0 auto;
+  letter-spacing:5% ;
+ 
+}
+
+  
+
+.ligne-champs {
+  display: flex;
+  padding: 20px 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--beige-clair);
+   gap: 10px;
+ 
+}
+
+.input-champ {
+    
+    padding: 16px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%; /* chaque champ occupe toute la largeur de son conteneur par défaut */
+    box-sizing: border-box;
+   
+    
+  }
+  
+  .champ-50 {
+    width: 50%; 
+    
+  }
+  .form-group {
+    gap: 10px;
     display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    color: white;
+    flex-direction: column;
+    width: 100%;
+    
+  }
+  
+  .form-group textarea {
+    height: 250px; 
+    resize: vertical; 
+  }
+
+  .input-champ,
+textarea,
+select {
+  border: 1px solid #422D00;
+  background-color: var(--beige-fond);
+  color: var(--marron-tres-fonce);
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 16px;
+  box-sizing: border-box;
 }
