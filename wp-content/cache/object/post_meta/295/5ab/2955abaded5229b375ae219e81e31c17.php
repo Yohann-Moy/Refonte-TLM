@@ -1,0 +1,8 @@
+Z�Bh<?php exit; ?>a:2:{s:7:"content";a:19:{s:10:"_edit_last";a:1:{i:0;s:1:"1";}s:10:"_edit_lock";a:1:{i:0;s:12:"1748336023:1";}s:17:"_wp_page_template";a:1:{i:0;s:7:"default";}s:10:"open_hours";a:1:{i:0;s:572:"<!-- ATTENTION, L’ÉDITION DES INFORMATIONS SITUÉES AU SEIN DE CE BLOC DE SAISIE SONT CRITIQUES. SI VOUS ENVISAGEZ DE METTRE À JOUR LES HORAIRES D'OUVERTURE DE LA MAIRIE, CONTACTEZ LE DÉVELOPPEUR OU L'AGENCE WEB AYANT LIVRÉ VOTRE SITE INTERNET. -->
+<ul>
+ 	<li>Lundi : 14h00 - 17h00</li>
+ 	<li class="multi-levels"><span>Mardi et Jeudi&nbsp;:</span><span class="top-on-each-other"><span>9h00 - 12h00</span><span>14h00 - 17h00</span></span></li>
+ 	<li>Mercredi et Vendredi : Fermé</li>
+ 	<li>Samedi * : 9h00 - 12h00</li>
+ 	<li>* 1er et 3ème du mois</li>
+</ul>";}s:11:"_open_hours";a:1:{i:0;s:19:"field_682f2d0856e3b";}s:21:"contact_infos_address";a:1:{i:0;s:19:"01 Rue de l'Église";}s:22:"_contact_infos_address";a:1:{i:0;s:19:"field_682f2ded56e3d";}s:25:"contact_infos_postal_code";a:1:{i:0;s:5:"60170";}s:26:"_contact_infos_postal_code";a:1:{i:0;s:19:"field_682f2e1956e3e";}s:18:"contact_infos_city";a:1:{i:0;s:13:"Tracy-le-Mont";}s:19:"_contact_infos_city";a:1:{i:0;s:19:"field_682f2e3556e3f";}s:13:"contact_infos";a:1:{i:0;s:0:"";}s:14:"_contact_infos";a:1:{i:0;s:19:"field_682f2da356e3c";}s:21:"contact_methods_phone";a:1:{i:0;s:10:"0344752305";}s:22:"_contact_methods_phone";a:1:{i:0;s:19:"field_682f2eff56e41";}s:20:"contact_methods_mail";a:1:{i:0;s:21:"mairie@tracylemont.fr";}s:21:"_contact_methods_mail";a:1:{i:0;s:19:"field_682f2f5a56e42";}s:15:"contact_methods";a:1:{i:0;s:0:"";}s:16:"_contact_methods";a:1:{i:0;s:19:"field_682f2ed056e40";}}s:15:"key_version_all";i:4;}

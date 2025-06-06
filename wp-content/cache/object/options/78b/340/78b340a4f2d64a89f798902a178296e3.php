@@ -1,0 +1,1 @@
+VßBh<?php exit; ?>a:2:{s:7:"content";a:5:{s:26:"classic-editor-allow-users";b:1;s:22:"classic-editor-replace";b:1;s:15:"secure_auth_key";b:1;s:16:"secure_auth_salt";b:1;s:10:"secret_key";b:1;}s:15:"key_version_all";i:4;}
