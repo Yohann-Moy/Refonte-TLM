@@ -21,7 +21,8 @@
   },
   "scripts": {
     "sass -v": "sass --version",
-    "compile:css": "sass --watch ./assets/css/sass/:./assets/css/build"
+    "compile:css": "sass --watch ./assets/css/sass/:./assets/css/build",
+    "compile-and-minify:css": "sass --watch ./assets/css/sass/:./assets/css/build --style compressed"
   },
   "main": "index.js"
 }

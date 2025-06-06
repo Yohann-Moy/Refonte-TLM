@@ -150,9 +150,12 @@ function tlm_scripts() {
 	$template = str_replace( '.php', '', $template );
 
 	wp_enqueue_style( $template.'-styles', get_template_directory_uri() . '/assets/css/build/pages/'.$template.'.css', array(), _S_VERSION );
-	wp_enqueue_script( $template.'-script', get_template_directory_uri() . '/assets/js/pages/'.$template.'.js', array(), _S_VERSION, ['strategy' => 'defer']);
-
 	wp_enqueue_script( 'tlm-navigation', get_template_directory_uri() . '/assets/js/generic/navigation.js', array(), _S_VERSION, ['strategy' => 'defer']);
+	wp_enqueue_script( 'tlm-lazyload', get_template_directory_uri() . '/assets/js/generic/lazyload.js', array(), _S_VERSION, ['strategy' => 'defer']);
+	// wp_enqueue_script( $template.'-script', get_template_directory_uri() . '/assets/js/pages/'.$template.'.js', array(), _S_VERSION, ['strategy' => 'defer']);
+	wp_enqueue_script( $template.'-increment-script', get_template_directory_uri() . '/assets/js/modules/'.$template.'/increment.js', array(), _S_VERSION, ['strategy' => 'defer']);
+	wp_enqueue_script( $template.'-activites-script', get_template_directory_uri() . '/assets/js/modules/'.$template.'/activities.js', array(), _S_VERSION, ['strategy' => 'defer']);
+
 
 
 }
@@ -363,10 +366,16 @@ function crunchify_remove_version() {
 	add_action('init', 'cw_post_type_events');
 
 
-	// Fonction qui permet de gérer les images
-	function generate_img_tag(int $attachementID = 0, $size = 'thumbnail') :string{
+	// Fonction qui permet de gérer les images (en prenant en considération le lazyloading)
+	function generate_img_tag(int $attachementID = 0, $size = 'thumbnail', $loading = false, $width = '', $height = '') :string{
 
 		// Retourne 0 si l'image n'a pas encore éte ajouté
+
+				// Fait en sorte d'ajouter la possibilité d'ajouter un attribut loading
+				$loadingAttr = '';
+
+				// Fait en sorte de définir la widh et la height de l'image.
+				$widthAndHeightAttr = '';
 				
 				if($attachementID === 0):
 					// Y'a pas d'image de définie et donc par conséquent :
@@ -397,5 +406,14 @@ function crunchify_remove_version() {
 					// Si non, afficher l'alt de base qui spécifie que c'est une image d'illustration qui n'a pas de ALT renseigné
 				endif;
 
-				return '<img src="' . $imgLink . '" alt="' . $imgAlt . '">';
+				if($loading === true):
+					$loadingAttr = 'data-loading="lazy" data-loaded="false" data-src="' . $imgLink . '"';
+					$imgLink = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiLz4=";
+				endif;
+
+				if($width !== '' && $height !== ''):
+					$widthAndHeightAttr = 'width="' . $width . '" height="' . $height . '"';
+				endif;
+
+				return '<div class="img-wrapper" '.$loadingAttr.'><img src="' . $imgLink . '" alt="' . $imgAlt . '" '.$widthAndHeightAttr.'></div>';
 	}

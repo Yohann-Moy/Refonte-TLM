@@ -41,7 +41,7 @@ $events = get_posts($args);
 
             <?php 
                 $imgId = get_post_thumbnail_id($post->ID);
-                echo generate_img_tag($imgId, 'medium');
+                echo generate_img_tag($imgId, 'medium', true);
             ?>
 
             <div class="textContainer">

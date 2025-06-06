@@ -291,6 +291,43 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
     top: 46px;
   }
 }
+.img-wrapper[data-loading=lazy] {
+  position: relative;
+  height: inherit;
+  width: inherit;
+  border-radius: inherit;
+}
+.img-wrapper[data-loading=lazy]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #dedede;
+  z-index: 100;
+  opacity: 1;
+  transition: 0.5s;
+  border-radius: inherit;
+}
+.img-wrapper[data-loading=lazy][data-loaded=false]::before {
+  animation: infinite whisper 1s ease-in-out;
+}
+.img-wrapper[data-loading=lazy][data-loaded=true]::before {
+  opacity: 0;
+}
+@keyframes whisper {
+  0% {
+    background-color: #dedede;
+  }
+  50% {
+    background-color: #f2f2f2;
+  }
+  100% {
+    background-color: #dedede;
+  }
+}
+
 .heroBanner {
   position: relative;
   height: 100svh;
@@ -298,7 +335,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 }
 .heroBanner img {
   width: inherit;
-  height: 100%;
+  height: inherit;
   object-fit: cover;
   object-position: center;
 }
@@ -310,6 +347,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto !important;
+  z-index: 100;
 }
 
 #servicesRapides {
@@ -317,7 +355,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   width: 100%;
   box-sizing: border-box;
   position: absolute;
-  z-index: 1;
+  z-index: 101;
   bottom: 0%;
   left: 50%;
   transform: translateX(-50%);
@@ -340,6 +378,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 }
 #servicesRapides a svg {
   width: 100%;
+  height: 110px;
   transition: 0.3s;
 }
 #servicesRapides a::after {
@@ -508,6 +547,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   filter: contrast(0.5);
   border-radius: 0.625rem;
   transition: all 0.15s ease-in-out;
+  z-index: 1;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:hover::before, #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink:focus::before {
   background-color: #1C7950;
@@ -535,6 +575,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   box-sizing: border-box;
   top: 0;
   bottom: 0;
+  z-index: 2;
 }
 #latestNews .newsContainer .sideSection .sideArticle .sideArticleLink .textContainer .title {
   text-transform: uppercase;
@@ -600,7 +641,6 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/wp-content/themes/tlm/assets/img/events_background.webp");
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -644,10 +684,14 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   flex-direction: column;
   align-items: center;
 }
+#latestEvents .eventsContainer .eventArticle .img-wrapper {
+  width: 100%;
+  border-radius: 10px;
+}
 #latestEvents .eventsContainer .eventArticle img {
   height: 250px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: inherit;
   width: 100%;
 }
 #latestEvents .eventsContainer .eventArticle .textContainer {
@@ -875,7 +919,7 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
 #activities .textContainer {
   position: absolute;
   bottom: 0;
-  width: calc(60% - 235px);
+  width: calc(100% - 235px);
   z-index: 20;
   padding-bottom: 8rem;
   padding-left: 4rem;
@@ -891,6 +935,8 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   position: relative;
   height: inherit;
   clip-path: polygon(0 0, 100% 0%, calc(100% - 200px) 100%, 0% 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #activities .activity:first-of-type {
   width: 60%;
@@ -932,12 +978,20 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
   font-weight: 600px;
 }
+#activities .activity .img-wrapper {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 #activities .activity img {
   width: 100%;
   height: inherit;
   object-fit: cover;
   object-position: center;
   transition: 0.3s;
+}
+#activities .activity img::before {
+  display: none;
 }
 #activities .activity:not(:first-of-type) {
   cursor: pointer;

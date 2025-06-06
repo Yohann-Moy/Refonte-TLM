@@ -29,7 +29,7 @@
     .textContainer{
         position: absolute;
         bottom: 0;
-        width: calc(60% - 235px);
+        width: calc(100% - 235px);
         z-index: 20;
         padding-bottom: 8rem;
         padding-left: 4rem;
@@ -48,6 +48,8 @@
         position: relative;
         height: inherit;
         clip-path: polygon(0 0, 100% 0%, calc(100% - 200px) 100%, 0% 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
 
         &:first-of-type{
             width: 60%;
@@ -99,6 +101,12 @@
             font-family: var.$secondaryTypo;
             font-weight: 600px;
         }
+
+        .img-wrapper{
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
         
         img{
             width: 100%;
@@ -106,6 +114,10 @@
             object-fit: cover;
             object-position: center;
             transition: var.$smallTransi;
+
+            &::before{
+                display: none;
+            }
         }
 
         // Gestion des animations sur l'image sélectionnée

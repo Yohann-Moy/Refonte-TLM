@@ -7,7 +7,7 @@
     width: 100%;
     img{
         width: inherit;
-        height: 100%;
+        height: inherit;
         object-fit: cover;
         object-position: center;
     }
@@ -20,6 +20,7 @@
         width:100%;
         max-width: var.$mxw;
         margin: 0 auto !important; // A retravailler 
+        z-index: 100;
     }
 
 

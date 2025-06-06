@@ -1,0 +1,44 @@
+@use '../utils/variables' as var;
+
+// Gestion du lazy-loading et de ses animations
+.img-wrapper[data-loading="lazy"]{
+
+    position: relative;
+    height: inherit;
+    width: inherit;
+    border-radius: inherit;
+
+    &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: #dedede;
+        z-index: 100;
+        opacity: 1;
+        transition: 0.5s;
+        border-radius: inherit;
+    }
+
+    &[data-loaded="false"]::before{
+        animation: infinite whisper 1s ease-in-out;
+    }
+
+    &[data-loaded="true"]::before{
+        opacity: 0;
+    }
+
+    @keyframes whisper {
+        0%{
+            background-color: #dedede;
+        }
+        50%{
+            background-color: #f2f2f2;
+        }
+        100%{
+            background-color: #dedede;
+        }
+    }
+}

@@ -35,7 +35,7 @@ $posts = get_posts($args);
 
                     // Récupère l'image associée au post
                     $imgId = get_post_thumbnail_id($post->ID);
-                    echo generate_img_tag($imgId, 'large');
+                    echo generate_img_tag($imgId, 'large', true);
                 ?>
 
                     <div class="textContainer">
@@ -75,7 +75,7 @@ $posts = get_posts($args);
 
                         <?php
                             $imgId = get_post_thumbnail_id($post->ID);
-                            echo generate_img_tag($imgId, 'medium');
+                            echo generate_img_tag($imgId, 'medium', true);
                         ?>
 
                             <article class="textContainer">

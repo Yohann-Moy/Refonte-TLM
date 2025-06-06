@@ -14,7 +14,6 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('/wp-content/themes/tlm/assets/img/events_background.webp');
         background-size: cover;
         background-position: center;
         z-index: -1;
@@ -62,10 +61,15 @@
             flex-direction: column;
             align-items: center;
 
+            .img-wrapper{
+                width: 100%;
+                border-radius: 10px;
+            }
+
             img {
                 height: 250px;
                 object-fit: cover;
-                border-radius: 10px;
+                border-radius: inherit;
                 width: 100%;
             }
 
