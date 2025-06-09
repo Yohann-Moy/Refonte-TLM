@@ -17,12 +17,15 @@
     "url": "https://github.com/Automattic/_s/issues"
   },
   "devDependencies": {
-    "sass": "1.77.0"
+    "sass": "1.77.0",
+    "uglify-js": "^3.17.4",
+    "uglifyjs-folder": "^3.3.0"
   },
   "scripts": {
     "sass -v": "sass --version",
     "compile:css": "sass --watch ./assets/css/sass/:./assets/css/build",
-    "compile-and-minify:css": "sass --watch ./assets/css/sass/:./assets/css/build --style compressed"
+    "compile-and-minify:css": "sass --watch ./assets/css/sass/:./assets/css/build --style compressed",
+    "compile:js": "node ./js/minify.js"
   },
   "main": "index.js"
 }

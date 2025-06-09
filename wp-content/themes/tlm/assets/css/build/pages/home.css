@@ -350,6 +350,11 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   z-index: 100;
 }
 
+@media screen and (max-width: 1099px) {
+  body .heroBanner section h1.hb_title {
+    font-size: 2.5rem;
+  }
+}
 #servicesRapides {
   max-width: 835px;
   width: 100%;
@@ -680,7 +685,6 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   justify-content: center;
 }
 #latestEvents .eventsContainer .eventArticle {
-  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -761,6 +765,33 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
   margin-left: -10px;
 }
 
+@media screen and (max-width: 1499px) {
+  .eventsContainer .eventArticle .textContainer .dates svg {
+    max-width: 100px;
+  }
+}
+@media screen and (max-width: 1499px) and (max-width: 1199px) {
+  .eventsContainer {
+    flex-wrap: wrap;
+  }
+  .eventsContainer .eventArticle {
+    flex: calc(50% - 1rem);
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 699px) {
+  .eventsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .eventsContainer .eventArticle {
+    width: 80%;
+    margin-bottom: 2rem;
+  }
+  #latestEvents {
+    padding: 6rem 1rem;
+  }
+}
 @media screen and (max-width: 999px) {
   #latestEvents {
     padding: 11rem 1rem;

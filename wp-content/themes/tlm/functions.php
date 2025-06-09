@@ -150,11 +150,7 @@ function tlm_scripts() {
 	$template = str_replace( '.php', '', $template );
 
 	wp_enqueue_style( $template.'-styles', get_template_directory_uri() . '/assets/css/build/pages/'.$template.'.css', array(), _S_VERSION );
-	wp_enqueue_script( 'tlm-navigation', get_template_directory_uri() . '/assets/js/generic/navigation.js', array(), _S_VERSION, ['strategy' => 'defer']);
-	wp_enqueue_script( 'tlm-lazyload', get_template_directory_uri() . '/assets/js/generic/lazyload.js', array(), _S_VERSION, ['strategy' => 'defer']);
-	// wp_enqueue_script( $template.'-script', get_template_directory_uri() . '/assets/js/pages/'.$template.'.js', array(), _S_VERSION, ['strategy' => 'defer']);
-	wp_enqueue_script( $template.'-increment-script', get_template_directory_uri() . '/assets/js/modules/'.$template.'/increment.js', array(), _S_VERSION, ['strategy' => 'defer']);
-	wp_enqueue_script( $template.'-activites-script', get_template_directory_uri() . '/assets/js/modules/'.$template.'/activities.js', array(), _S_VERSION, ['strategy' => 'defer']);
+	wp_enqueue_script( $template.'-script', get_template_directory_uri() . '/assets/js/pages/'.$template.'.min.js', array(), _S_VERSION, ['strategy' => 'defer']);
 
 
 

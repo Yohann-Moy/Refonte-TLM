@@ -25,3 +25,13 @@
 
 
 }
+
+@media screen and (max-width: 1099px) {
+    body .heroBanner{
+        section{
+            h1.hb_title{
+                font-size: 2.5rem;
+            }
+        }
+    }
+}
