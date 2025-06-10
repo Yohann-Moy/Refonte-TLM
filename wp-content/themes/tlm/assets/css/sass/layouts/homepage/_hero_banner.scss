@@ -30,7 +30,61 @@
     body .heroBanner{
         section{
             h1.hb_title{
+                font-size: 4rem;
+            }
+
+            .hb_subtitle{
+                font-size: 3.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 899px) {
+    body .heroBanner{
+        section{
+            h1.hb_title span{
+                display: block;
+            }
+
+            
+        }
+    }
+}
+
+@media screen and (max-width: 799px) {
+    body .heroBanner{
+        section{
+            h1.hb_title{
+                font-size: 3.5rem;
+            }
+
+            .hb_subtitle{
+                line-height: 1;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 449px) {
+    body .heroBanner{
+        section{
+            h1.hb_title{
+                font-size: 3rem;
+            }
+
+            .hb_subtitle{
                 font-size: 2.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 375px) {
+    body .heroBanner{
+        section{
+            h1.hb_title{
+                font-size: 2.7rem;
             }
         }
     }

@@ -1,1 +1,1 @@
-:sGh<?php exit; ?>a:2:{s:7:"content";a:2:{s:26:"classic-editor-allow-users";b:1;s:22:"classic-editor-replace";b:1;}s:15:"key_version_all";i:1;}
+¡Hh<?php exit; ?>a:2:{s:7:"content";a:2:{s:26:"classic-editor-allow-users";b:1;s:22:"classic-editor-replace";b:1;}s:15:"key_version_all";i:6;}

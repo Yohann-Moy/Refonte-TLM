@@ -14,6 +14,8 @@
 $heroBanner = get_field('hero_banner');
 $title = verifyTextField($heroBanner['main_title'], 'Titre');
 $catchPhrase = verifyTextField($heroBanner['catch_phrase'], 'Phrase d\'accroche');
+$title = str_replace('Tracy-le-Mont', "<span>Tracy-le-Mont</span>", $title);
+
 
 ?>
     <div class="heroBanner">
@@ -23,6 +25,7 @@ $catchPhrase = verifyTextField($heroBanner['catch_phrase'], 'Phrase d\'accroche'
         ?>
         <section>
             <h1 class="hb_title"><?php echo $title; ?></h1>
+
             <p class="hb_subtitle" ><?php echo $catchPhrase; ?></p>
         </section>
         <?php

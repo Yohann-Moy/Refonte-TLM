@@ -290,20 +290,129 @@ header #burger-toggler:hover::before, header #burger-toggler:focus::before {
     top: 46px;
   }
 }
+@media screen and (max-width: 767px) {
+  header nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  header nav ul {
+    padding-top: 85px;
+    height: calc(100vh - 85px);
+  }
+  header #burger-toggler {
+    scale: 0.75;
+  }
+  header .logo-container img {
+    width: 80px;
+    height: 80px;
+  }
+  header.coloured .logo-container img {
+    width: 80px;
+    height: 80px;
+  }
+}
 footer {
   background-color: #fff9eb;
   box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.16);
 }
+footer .top-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1500px;
+  width: 100%;
+  margin: auto;
+  padding: 4rem 2rem 2rem;
+  box-sizing: border-box;
+}
+footer .top-container p.title {
+  margin: 0 0 2rem;
+  text-align: left;
+  font-family: "MPlus Rounded 1c ExtraBold", sans-serif;
+  font-weight: 300;
+  font-size: 1.75rem;
+}
+footer ul {
+  font-family: "MPlus Rounded 1c", sans-serif;
+  color: #422D00;
+  font-weight: 500;
+}
+footer a {
+  color: #422D00;
+  font-weight: 600;
+  outline: none;
+}
+footer a:hover, footer a:focus {
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+  text-decoration-thickness: 0.1rem;
+}
+footer a:hover img, footer a:hover.cclo, footer a:hover.oise, footer a:focus img, footer a:focus.cclo, footer a:focus.oise {
+  transition: 0.075s;
+  filter: brightness(0) saturate(100%) invert(35%) sepia(65%) saturate(489%) hue-rotate(101deg) brightness(93%) contrast(89%);
+}
+footer .top-on-each-other {
+  display: flex;
+  flex-direction: column;
+}
+footer .top-on-each-other span:first-of-type,
+footer .top-on-each-other li:first-of-type {
+  margin-bottom: 0.5rem;
+}
+footer .logo-container,
+footer .hours-container,
+footer .contact-container {
+  width: 100%;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+footer .logo-container {
+  max-width: 185px;
+}
+footer .logo-container img {
+  width: 100%;
+  height: auto;
+}
+footer .hours-container {
+  max-width: 425px;
+}
+footer .hours-container li {
+  margin: 0.75rem 0;
+}
+footer .hours-container li.multi-levels {
+  display: flex;
+}
+footer .hours-container li:last-of-type {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+footer .hours-container span.top-on-each-other {
+  margin-left: 0.25rem;
+}
+footer .contact-container {
+  max-width: 350px;
+}
+footer .contact-container li.element {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+footer .contact-container li.element:last-of-type {
+  margin-bottom: 0;
+}
+footer .partners-container {
+  max-width: 295px;
+}
 footer .icon {
-  background-image: url("../../../img/spritemap.webp");
   display: block;
+  margin-right: 1rem;
+  background-image: url("../../../img/spritemap.webp");
   background-repeat: no-repeat;
 }
 footer .icon.location, footer .icon.phone, footer .icon.mail {
   width: 40px;
   height: 40px;
-  background-position-y: bottom;
   background-size: 155px;
+  background-position-y: bottom;
 }
 footer .icon.location {
   background-position-x: 1px;
@@ -317,14 +426,142 @@ footer .icon.mail {
 footer .icon.cclo, footer .icon.oise {
   width: 295px;
   height: 100px;
-  background-position-x: right;
   background-size: 310px;
+  background-position-x: right;
+  margin-right: 0;
 }
 footer .icon.cclo {
   background-position-y: center;
 }
 footer .icon.oise {
   background-position-y: top;
+}
+
+@media screen and (max-width: 1199px) {
+  footer .top-container {
+    position: relative;
+  }
+  footer .top-container .logo-container {
+    position: absolute;
+    right: 0;
+    top: 4rem;
+    max-width: 125px;
+  }
+  footer .top-container .partners-container {
+    max-width: 100px;
+    margin-top: 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  footer .top-container .partners-container p.title {
+    display: none;
+  }
+  footer .top-container .icon.cclo {
+    width: 100px;
+    background-position-x: -30px;
+    scale: 0.75;
+  }
+  footer .top-container .icon.oise {
+    background-position-x: -49px;
+    width: 70px;
+    height: 70px;
+    background-position-y: -18px;
+  }
+}
+@media screen and (max-width: 899px) {
+  footer .top-container {
+    padding-bottom: 12rem;
+  }
+  footer .top-container .logo-container {
+    max-width: 150px;
+    bottom: 1rem;
+    top: auto;
+    left: 1rem;
+  }
+  footer .top-container .contact-container {
+    padding-right: 0;
+    max-width: 285px;
+  }
+  footer .top-container .partners-container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 4rem;
+    bottom: 0;
+  }
+  footer .top-container .icon.cclo {
+    scale: 1;
+    position: absolute;
+    bottom: 2rem;
+    right: 8rem;
+    height: 79px;
+  }
+  footer .top-container .icon.oise {
+    position: absolute;
+    bottom: 2.25rem;
+    right: 1rem;
+    height: 60px;
+    background-position-y: -23px;
+    scale: 1.15;
+  }
+}
+@media screen and (max-width: 767px) {
+  footer .top-container {
+    flex-direction: column;
+    padding-bottom: 11rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  footer .top-container p.title {
+    text-align: center;
+  }
+  footer .top-container .hours-container, footer .top-container .contact-container {
+    max-width: 100%;
+    text-align: center;
+    padding-right: 0;
+  }
+  footer .top-container li.multi-levels, footer .top-container li.element {
+    justify-content: center;
+  }
+  footer .top-container .top-on-each-other li, footer .top-container .top-on-each-other span {
+    text-align: left;
+  }
+  footer .top-container .contact-container {
+    margin-top: 3rem;
+  }
+  footer .top-container .partners-container {
+    left: 0;
+    right: 0;
+    max-width: 100%;
+  }
+  footer .top-container .logo-container {
+    padding-right: 0;
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+    max-width: 110px;
+  }
+  footer .top-container .icon.cclo {
+    scale: 0.75;
+    right: 50%;
+    transform: translateX(calc(50% - 130px));
+  }
+  footer .top-container .icon.oise {
+    scale: 0.95;
+    right: 50%;
+    transform: translateX(calc(50% + 110px));
+  }
+}
+@media screen and (max-width: 399px) {
+  footer .top-container .icon.cclo {
+    left: 0;
+    transform: none;
+  }
+  footer .top-container .icon.oise {
+    right: 1.25rem;
+    transform: none;
+  }
 }
 
 /*# sourceMappingURL=neighbourhood.css.map */

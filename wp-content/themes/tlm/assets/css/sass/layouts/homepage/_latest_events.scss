@@ -166,6 +166,11 @@
 }
 
 @media screen and (max-width: 1199px) {
+
+    #LatestEvents {
+        font-size: 2.5rem;
+    }
+    
     .eventsContainer {
         flex-wrap: wrap;
 
@@ -183,18 +188,41 @@
         align-items: center;
 
         .eventArticle {
-            width: 80%;
+            width: 100%;
             margin-bottom: 2rem;
         }
     }
 
     #latestEvents {
         padding: 6rem 1rem;
+
+        h2{
+            font-size: 1.5rem;
+        }
     }
 }
 
 @media screen and (max-width: 999px) {
+
+    #latestEvents{ 
+    h2{
+        font-size: 2rem;
+    }
+    
+    .eventsContainer .eventArticle .textContainer{
+
+    .date{
+        font-size: 1.5rem;
+    }
+
+    h3{
+        font-size: 1.75rem;
+    }
+
+}
     #latestEvents {
         padding: 11rem 1rem;
     }
+
+}
 }

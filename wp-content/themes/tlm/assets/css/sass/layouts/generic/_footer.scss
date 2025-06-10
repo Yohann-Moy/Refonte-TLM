@@ -1,50 +1,343 @@
 @use '../../utils/variables' as var;
 
-footer{
+footer {
+  background-color: var.$header-and-footer;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, .16);
 
-    background-color: var.$header-and-footer;
-    box-shadow: 0 0 4px 4px rgba(0,0,0,.16);
-    
-    .icon{
-        background-image: url("../../../img/spritemap.webp");
-        display: block;
-        background-repeat: no-repeat;
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    padding: 4rem 2rem 2rem;
+    box-sizing: border-box;
 
-        &.location, &.phone, &.mail{
-            width: 40px;
-            height: 40px;
-            background-position-y: bottom;
-            background-size: 155px;
+    p.title {
+      margin: 0 0 2rem;
+      text-align: left;
+      font-family: var.$secondaryTypo;
+      font-weight: 300;
+      font-size: 1.75rem;
+    }
+  }
+
+  ul {
+    font-family: var.$primaryTypo;
+    color: var.$primaryColour;
+    font-weight: 500;
+  }
+
+  a {
+    color: var.$primaryColour;
+    font-weight: 600;
+    outline: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      text-underline-offset: 0.35rem;
+      text-decoration-thickness: 0.1rem;
+
+      img,
+      &.cclo,
+      &.oise {
+        transition: calc(var.$smallTransi / 4);
+        filter: brightness(0) saturate(100%) invert(35%) sepia(65%) saturate(489%) hue-rotate(101deg) brightness(93%) contrast(89%);
+      }
+    }
+  }
+
+  .top-on-each-other {
+    display: flex;
+    flex-direction: column;
+
+    span:first-of-type,
+    li:first-of-type {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .logo-container,
+  .hours-container,
+  .contact-container {
+    width: 100%;
+    padding-right: 2rem;
+    box-sizing: border-box;
+  }
+
+  .logo-container {
+    max-width: 185px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .hours-container {
+    max-width: 425px;
+
+    li {
+      margin: 0.75rem 0;
+
+      &.multi-levels {
+        display: flex;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+        font-size: 0.85rem;
+      }
+    }
+
+    span.top-on-each-other {
+      margin-left: 0.25rem;
+    }
+  }
+
+  .contact-container {
+    max-width: 350px;
+
+    li.element {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .partners-container {
+    max-width: 295px;
+  }
+
+  .icon {
+    display: block;
+    margin-right: 1rem;
+    background-image: url("../../../img/spritemap.webp");
+    background-repeat: no-repeat;
+
+    &.location,
+    &.phone,
+    &.mail {
+      width: 40px;
+      height: 40px;
+      background-size: 155px;
+      background-position-y: bottom;
+    }
+
+    &.location {
+      background-position-x: 1px;
+    }
+
+    &.phone {
+      background-position-x: -76px;
+    }
+
+    &.mail {
+      background-position-x: -37px;
+    }
+
+    &.cclo,
+    &.oise {
+      width: 295px;
+      height: 100px;
+      background-size: 310px;
+      background-position-x: right;
+      margin-right: 0;
+    }
+
+    &.cclo {
+      background-position-y: center;
+    }
+
+    &.oise {
+      background-position-y: top;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+
+    // Responsive à concevoir sur Figma.
+    // puis à implémenter via SCSS.
+
+    footer {
+        
+        .top-container {
+            position: relative;
+
+            .logo-container{
+              position: absolute;
+              right: 0;
+              top: 4rem;
+              max-width: 125px;
+            }
+
+            .partners-container{
+
+              max-width: 100px;
+              margin-top: 80px;
+              align-items: center;
+              display: flex;
+              flex-direction: column;
+
+              p.title{
+                display: none;
+              }
+            }
+
+            .icon{
+              &.cclo{
+                width: 100px;
+                background-position-x: -30px;
+                scale: 0.75;
+              }
+
+              &.oise{
+                background-position-x: -49px;
+                width: 70px;
+                height: 70px;
+                background-position-y: -18px;
+              }
+            }
         }
+    }
+}
 
-        &.location{
-            background-position-x: 1px;
-        }
+@media screen and (max-width: 899px) {
+  footer{
 
-        &.phone{
-            background-position-x: -76px;
-        }
+    .top-container{
+      padding-bottom: 12rem;
 
-        &.mail{
-            background-position-x: -37px;
-        }
+      
+      .logo-container{
+        max-width: 150px;
+        bottom: 1rem;
+        top: auto;
+        left: 1rem;
+      }
 
-        &.cclo, &.oise{
-            width: 295px;
-            height: 100px;
-            background-position-x: right;
-            background-size: 310px;
-        }
+      .contact-container{
+        padding-right: 0;
+        max-width: 285px;
+      }
 
+      .partners-container{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 4rem;
+        bottom: 0;
+      }
+
+      .icon{
         &.cclo{
-            background-position-y: center;
+          scale: 1;
+          position: absolute;
+          bottom: 2rem;
+          right : 8rem;
+          height: 79px;
         }
 
         &.oise{
-            background-position-y: top;
+          position: absolute;
+          bottom: 2.25rem;
+          right: 1rem;
+          height: 60px;
+          background-position-y: -23px;
+          scale: 1.15;
         }
-
-
+      }
     }
 
+  }
+}
+
+@media screen and (max-width: 767px) {
+  footer{
+    .top-container{
+      flex-direction: column;
+      padding-bottom: 11rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      p.title{
+        text-align: center;
+      }
+
+      .hours-container, .contact-container{
+        max-width: 100%;
+        text-align: center;
+        padding-right: 0;
+      }
+
+      li.multi-levels, li.element{
+        justify-content: center;
+      }
+
+      .top-on-each-other{
+        li, span{
+          text-align: left;
+        }
+      }
+
+      .contact-container{
+        margin-top: 3rem;
+      }
+
+      .partners-container{
+        left: 0;
+        right: 0;
+        max-width: 100%;
+      }
+
+      .logo-container{
+        padding-right: 0;
+        left: auto;
+        right: 50%;
+        transform: translateX(50%);
+        max-width: 110px;
+      }
+
+      .icon{
+        &.cclo{
+          scale: 0.75;
+          right: 50%;
+          transform: translateX(calc(50% - 130px));
+        }
+
+        &.oise{
+          scale: 0.95;
+          right: 50%;
+          transform: translateX(calc(50% + 110px));
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 399px) {
+  footer{
+    .top-container{
+
+      .icon{
+
+        &.cclo{
+          left: 0;
+          transform: none;
+        }
+  
+        &.oise{
+          right: 1.25rem;
+          transform: none;
+        }
+      }
+    }
+
+  }
 }

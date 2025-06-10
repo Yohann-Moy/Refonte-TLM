@@ -155,8 +155,13 @@
     #statistics {
         padding-left: 1rem;
         padding-right: 1rem;
+
+        h2{
+            font-size: 2rem;
+        }
     }
 }
+
 
 @media screen and (max-width: 767px) {
     #statistics {

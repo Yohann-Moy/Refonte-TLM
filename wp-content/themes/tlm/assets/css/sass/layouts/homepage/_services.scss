@@ -94,11 +94,33 @@
     // A finaliser car les icones deviennent très petites
 
     #servicesRapides{
-        padding: 0rem 1rem 0rem 1rem;
+        padding: 0;
         border-radius: 0;
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+
+        a{
+            flex-shrink: 0;
+            width: 23%;
+        }
+
+        svg{
+            height: 60px;
+            width: 60px;
+        }
 
         &::before, &::after{
             display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 649px) {
+    #servicesRapides{
+        a{
+            width: 25%;
+
+
         }
     }
 }
