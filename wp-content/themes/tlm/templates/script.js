@@ -26,7 +26,7 @@
 
       // Videz toutes les erreurs
       document.querySelectorAll(".error").forEach(el => el.innerText = "");
-      document.getElementById("resultat").innerText = "";
+      // document.getElementById("resultat").innerText = "";
       
       // Créez un FormData qui contient les données du formulaire
       const formData = new FormData(form);
@@ -72,7 +72,7 @@
         // form.reset();
 
       } catch (error) {
-        document.getElementById("resultat").innerHTML = "Erreur lors de l'envoi.";
+        document.querySelector(".submit-results").innerHTML = "Erreur lors de l'envoi.";
       }
     });
   });

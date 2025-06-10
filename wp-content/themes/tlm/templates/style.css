@@ -6,6 +6,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
   --vert-fonce: #1C7950;
   --vert-moyen: #3B7A3E;
@@ -24,65 +25,78 @@ body {
   color: var(--marron-fonce);
   line-height:auto; 
 }
-.title-page {
+
+.mxw{
   max-width: 1400px;
-  height: 287px;
   margin: 0 auto;
-  
-}
-.title-page h1 {
-  width: 568px;
-  font-size: 64px;
-  font-weight: 700;
-  color: #422D00; 
-  text-align: center;
-  padding: 96px 96px;
-  margin: auto;
-}
-.content {
-  max-width: 1400px;
-  font-size: 24px;
-  font-weight: 500;
-  color: var(--marron-tres-fonce);
-  margin: 0 auto;
-  letter-spacing:5% ;
- 
+  padding: 0 2rem;
 }
 
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--marron-fonce);
+  text-align: center;
+  padding: 6rem;
+  text-transform: uppercase;
+}
+.title-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
+}
+
+.icon-title  {
+  width: 75px; 
+  height: 75px; 
+  margin-right: rem; 
+  
+}
+h2{
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--marron-fonce);
+  margin: 3rem 0;
+}
+
+.content {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--marron-tres-fonce);
+  letter-spacing:5% ;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
 .ligne-champs {
   display: flex;
-  padding: 20px 12px;
-  max-width: 1400px;
-  margin: 0 auto;
   background-color: var(--beige-clair);
-   gap: 10px;
- 
+  gap: 1.5rem;
 }
 
 .input-champ {
-    
-    padding: 16px;
-    font-size: 16px;
+    padding: 1rem;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 10px;
-    width: 100%; /* chaque champ occupe toute la largeur de son conteneur par défaut */
     box-sizing: border-box;
-   
-    
   }
   
   .champ-50 {
     width: 50%; 
-    
   }
   .form-group {
     gap: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    
   }
   
   .form-group textarea {
@@ -90,14 +104,53 @@ body {
     resize: vertical; 
   }
 
-  .input-champ,
+.input-champ,
 textarea,
 select {
   border: 1px solid #422D00;
   background-color: var(--beige-fond);
   color: var(--marron-tres-fonce);
   border-radius: 10px;
-  padding: 16px;
-  font-size: 16px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.25rem;
   box-sizing: border-box;
 }
+
+textarea{
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 250px;
+  font-family: var(--font);
+}
+
+.btn-submit{
+  background-color: var(--vert-fonce);
+  color: var(--blanc);
+  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  border: none;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  font-weight: 700;
+}
+
+.btn-submit:hover {
+  background-color: var(--vert-moyen);
+  transition: background-color 0.3s ease;
+}
+input[type="checkbox"]{
+  width: 17px;
+  height: 17px;
+}
+
+/*
+
+  TODO pour le Mardi 10 juin 2025
+
+  1) Trouver un moyen de placer une icone d'enveloppe à gauche du titre H1
+  2) Trouver un moyen de placer une icone de petit avion à côté du texte "envoyer"
+  3) Appliquer un effet au survol du bouton
+  4) Trouver un moyen de styliser les messages d'erreurs et de succès de soumission du formulaire
+
+*/
