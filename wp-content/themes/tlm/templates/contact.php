@@ -46,10 +46,9 @@ get_header();
           <label for="cgu">En soumettant ce formulaire, j'admets être en accord avec  les mentions légales.</label>
         </div>
   
-      <button  type="submit" class="btn-submit
+      <button  type="submit" class="btn-submit" alt="Icone flèche" class="icon-arrow">
         <span>Envoyer</span>
-        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icone/plane-icon.svg' ); ?>" alt="Icone flèche" class="icon-arrow" />
-        
+        <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/icone/plane-icon.svg' ); ?>">
       </button>
     </form>
 
