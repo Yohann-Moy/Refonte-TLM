@@ -44,15 +44,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .icon-title  {
   width: 75px; 
-  height: 75px; 
-  margin-right: rem; 
-  
+  height: 75px;
+  margin-right: 2.5rem;
+  scale: 90%; 
 }
+
 h2{
   text-transform: uppercase;
   font-size: 2.25rem;
@@ -133,10 +133,17 @@ textarea{
   cursor: pointer;
   margin-top: 1.5rem;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-submit span{
+  margin-right: 1rem;
 }
 
 .btn-submit:hover {
-  background-color: var(--vert-moyen);
+  background-color: #356852;
   transition: background-color 0.3s ease;
 }
 input[type="checkbox"]{
@@ -148,9 +155,72 @@ input[type="checkbox"]{
 
   TODO pour le Mardi 10 juin 2025
 
-  1) Trouver un moyen de placer une icone d'enveloppe à gauche du titre H1
-  2) Trouver un moyen de placer une icone de petit avion à côté du texte "envoyer"
-  3) Appliquer un effet au survol du bouton
+  1) Trouver un moyen de placer une icone d'enveloppe à gauche du titre H1 OK
+  2) Trouver un moyen de placer une icone de petit avion à côté du texte "envoyer" OK
+  3) Appliquer un effet au survol du bouton OK
   4) Trouver un moyen de styliser les messages d'erreurs et de succès de soumission du formulaire
 
 */
+
+@media screen and (max-width: 949px) {
+  h1{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  h1{
+    font-size: 3.5rem;
+  }
+
+  h2{
+    font-size: 2rem;
+  }
+
+  .icon-title{
+    scale: 80%;
+  }
+}
+
+@media screen and (max-width: 699px) {
+  h1{
+    font-size: 3rem;
+  }
+
+  h2{
+    font-size: 1.75rem;
+  }
+
+  .icon-title{
+    margin-right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .icon-title{
+    display: none;
+  }
+
+  .ligne-champs{
+    flex-direction: column;
+  }
+
+  .champ-50{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 349px) {
+  h1{
+    font-size: 2.5rem;
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  .content, p, label{
+    font-size: 1.4rem;
+  }
+}
