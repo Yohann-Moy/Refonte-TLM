@@ -150,7 +150,21 @@ input[type="checkbox"]{
   width: 17px;
   height: 17px;
 }
+.submit-results{
+  margin-top: 2rem;
+  
 
+}
+.submit-results .error{
+  color: red;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+.success-message{
+  color: green;
+  font-weight: bold;
+  font-size: 1.15rem;
+}
 /*
 
   TODO pour le Mardi 10 juin 2025

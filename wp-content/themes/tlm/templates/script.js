@@ -52,7 +52,7 @@
         // C'est que l'envoi s'est bien passé
         if(result.success === true) {
           // Afficher un message de succès sur la pge
-          document.querySelector(".submit-results").innerHTML += `<p>Votre message nous a été transmis avec succès.</p>`;
+          document.querySelector(".submit-results").innerHTML += <p class= "success-message">Votre message nous a été transmis avec succès.</p>;
         }
         // Une ou plusieurs erreurs ont eu lieu (c'est que result.success === false)
         else{
